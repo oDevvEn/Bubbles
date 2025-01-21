@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://ddre760raai0o"]
+[gd_scene load_steps=4 format=3 uid="uid://ddre760raai0o"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
+[ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
+[ext_resource type="PackedScene" uid="uid://5lf8ispiq4cx" path="res://scenes/player.tscn" id="3_ucrm3"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
+
+[node name="player" parent="." instance=ExtResource("3_ucrm3")]
+
+[node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]

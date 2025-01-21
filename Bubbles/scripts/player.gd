@@ -23,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	
 	if direction > 0:
 		sprite.flip_h = false
-	elif direction < -1:
+	elif direction < 0:
 		sprite.flip_h = true
 	
 	if direction:

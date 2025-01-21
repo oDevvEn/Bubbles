@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn6es4mb7jm3w"]
+
+[ext_resource type="Texture2D" uid="uid://bvnlvuhbhdwej" path="res://assets/fishingRod.png" id="1_lts1u"]
+[ext_resource type="Script" path="res://scripts/fishingRod.gd" id="1_twmh0"]
+[ext_resource type="Texture2D" uid="uid://dbdrp86uo23d1" path="res://assets/bobber.png" id="2_a4e4p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_naauj"]
+size = Vector2(12, 22)
+
+[node name="fishingRod" type="Sprite2D"]
+texture = ExtResource("1_lts1u")
+script = ExtResource("1_twmh0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = 400.0
+offset_right = 320.0
+offset_bottom = 520.0
+grow_horizontal = 2
+grow_vertical = 2
+value = 100.0
+show_percentage = false
+
+[node name="Bobber" type="RigidBody2D" parent="."]
+visible = false
+
+[node name="BobberSprite" type="Sprite2D" parent="Bobber"]
+texture = ExtResource("2_a4e4p")
+
+[node name="BobberCollider" type="CollisionShape2D" parent="Bobber"]
+shape = SubResource("RectangleShape2D_naauj")
+
+[node name="BobberTip" type="Marker2D" parent="Bobber"]
+position = Vector2(0, -11)
+
+[node name="FishingRodTip" type="Marker2D" parent="."]
+position = Vector2(27.3333, -23.3333)
+
+[node name="FishingLine" type="Line2D" parent="."]
+visible = false
+top_level = true
+width = 2.0
