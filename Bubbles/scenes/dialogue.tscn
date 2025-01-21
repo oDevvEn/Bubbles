@@ -1,9 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://g0u7cinao7cn"]
+[gd_scene load_steps=2 format=3 uid="uid://g0u7cinao7cn"]
 
-[ext_resource type="Texture2D" uid="uid://biyi2qs7smdji" path="res://assets/icon.svg" id="1_qq428"]
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_x2qap"]
 
-[node name="Dialogue" type="Control"]
+[node name="dialogue" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,9 +18,10 @@ offset_bottom = 270.0
 
 [node name="Picture" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_right = 270.0
-offset_bottom = 270.0
-texture = ExtResource("1_qq428")
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 260.0
+offset_bottom = 260.0
 
 [node name="Name" type="RichTextLabel" parent="Background"]
 layout_mode = 0
