@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+var inventory = {"missingPoster": false, 
+"brokenPhone": false, "keys": false, "address": false,
+"necklace":false, "fishingRod": false}
+
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
