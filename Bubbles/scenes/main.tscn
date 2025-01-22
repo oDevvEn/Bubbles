@@ -1,137 +1,39 @@
-[gd_scene load_steps=49 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=51 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
 [ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
-[ext_resource type="Texture2D" uid="uid://bxl6maqmjwbl8" path="res://assets/BeachBackgroundSpriteSheet.png" id="5_cbpea"]
 [ext_resource type="Script" path="res://scripts/GoUnderwater.gd" id="7_f5jan"]
 [ext_resource type="Script" path="res://scripts/interactive_ui2.gd" id="7_jbvcv"]
 [ext_resource type="FontFile" uid="uid://dlmi3qmev1ipy" path="res://assets/Bubble gum.otf" id="8_22slv"]
 [ext_resource type="Script" path="res://scripts/GoOverground.gd" id="8_n3462"]
 [ext_resource type="Texture2D" uid="uid://dpxkkn8wjj4ux" path="res://assets/UnderwaterForeground.png" id="9_d6486"]
 [ext_resource type="Texture2D" uid="uid://d0v3beeunidn7" path="res://assets/UnderwaterBackgroundSpriteSheet.png" id="10_hksk6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g2jvf"]
-atlas = ExtResource("4_t0dgo")
-region = Rect2(0, 810, 1920, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bljaj"]
-atlas = ExtResource("4_t0dgo")
-region = Rect2(1920, 810, 1920, 270)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2xtck"]
-atlas = ExtResource("4_t0dgo")
-region = Rect2(3840, 810, 1920, 270)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_wfrxb"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g2jvf")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bljaj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2xtck")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bljaj")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tofw4"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(0, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1enq0"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(1920, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2g26k"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(3840, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_i0bvm"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(5760, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tlmjp"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(7680, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_g8sge"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(9600, 0, 1920, 1080)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hhoqn"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(11520, 0, 1920, 1080)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_ttgeo"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tofw4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1enq0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2g26k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i0bvm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tlmjp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g8sge")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhoqn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_hhoqn")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_g8sge")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tlmjp")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_i0bvm")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_2g26k")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1enq0")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
+[ext_resource type="Texture2D" uid="uid://q0jnap2fog6f" path="res://assets/DockBackground.png" id="12_1osy7"]
+[ext_resource type="Texture2D" uid="uid://ckm8u52aur1h3" path="res://assets/BeachBackground.png" id="13_jgudx"]
+[ext_resource type="Texture2D" uid="uid://ci304ckejntvg" path="res://assets/DockForegroundSpriteSheet.png" id="14_q2hx8"]
+[ext_resource type="Texture2D" uid="uid://d4jucupsuqt28" path="res://assets/VillagerFish.png" id="15_rwxi5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cafx"]
 size = Vector2(837.001, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
-size = Vector2(10608, 100)
+size = Vector2(12380, 100)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rd4oo"]
 normal = Vector2(0.999975, -0.00700547)
 distance = -638.774
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o3t4m"]
+size = Vector2(25.6, 71.6)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8obkk"]
+size = Vector2(7.99997, 83)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qwqp"]
-size = Vector2(2.2375, 4)
+size = Vector2(0.729999, 3.2)
 
 [sub_resource type="Animation" id="Animation_e5cf4"]
 resource_name = "fadeBlack"
@@ -343,8 +245,81 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_8obkk"]
-size = Vector2(7.99997, 83)
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2jvf"]
+atlas = ExtResource("4_t0dgo")
+region = Rect2(0, 810, 1920, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bljaj"]
+atlas = ExtResource("4_t0dgo")
+region = Rect2(1920, 810, 1920, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xtck"]
+atlas = ExtResource("4_t0dgo")
+region = Rect2(3840, 810, 1920, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfrxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2jvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bljaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xtck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bljaj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fvr1t"]
+atlas = ExtResource("14_q2hx8")
+region = Rect2(0, 810, 1987, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6qrn"]
+atlas = ExtResource("14_q2hx8")
+region = Rect2(1987, 810, 1987, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5gke"]
+atlas = ExtResource("14_q2hx8")
+region = Rect2(3974, 810, 1987, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e2jcs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fvr1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6qrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5gke")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1vm2"]
+atlas = ExtResource("4_t0dgo")
+region = Rect2(4320, 810, 1440, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ota7w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1vm2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
@@ -352,7 +327,7 @@ script = ExtResource("1_3xh5h")
 [node name="player" parent="." instance=ExtResource("3_ucrm3")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(0, -64)
+position = Vector2(-339, -67)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 offset = Vector2(0, -433)
@@ -361,22 +336,8 @@ offset = Vector2(0, -433)
 position = Vector2(123.5, -124.5)
 scale = Vector2(1.76563, 1.76563)
 
-[node name="Beach" type="AnimatedSprite2D" parent="."]
-z_index = -1
-position = Vector2(961, -88)
-sprite_frames = SubResource("SpriteFrames_wfrxb")
-autoplay = "default"
-frame = 2
-frame_progress = 0.85345
-
-[node name="BeachBackground" type="AnimatedSprite2D" parent="."]
-z_index = -2
-position = Vector2(961, -566)
-scale = Vector2(1, 1.11806)
-sprite_frames = SubResource("SpriteFrames_ttgeo")
-autoplay = "default"
-
 [node name="mapBoundaries" type="StaticBody2D" parent="."]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="mapBoundaries"]
 position = Vector2(1146, -371)
@@ -384,7 +345,7 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_2cafx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mapBoundaries"]
-position = Vector2(4781, -30)
+position = Vector2(3895, -30)
 shape = SubResource("RectangleShape2D_rylii")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="mapBoundaries"]
@@ -392,55 +353,65 @@ position = Vector2(1146, -371)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_rd4oo")
 
-[node name="Node2" type="Node" parent="."]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="mapBoundaries"]
+position = Vector2(-1814, -291)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_o3t4m")
 
-[node name="interactiveUI2" parent="Node2" instance=ExtResource("5_brayo")]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="mapBoundaries"]
+position = Vector2(4984, -561)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_8obkk")
+
+[node name="InteractiveUI" type="Node" parent="."]
+
+[node name="interactiveUI2" parent="InteractiveUI" instance=ExtResource("5_brayo")]
 position = Vector2(5156.75, -364.25)
 script = ExtResource("7_jbvcv")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2/interactiveUI2"]
-position = Vector2(75.375, 63.25)
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractiveUI/interactiveUI2"]
+position = Vector2(0, 103.25)
 scale = Vector2(100, 100)
 shape = SubResource("RectangleShape2D_7qwqp")
 script = ExtResource("8_n3462")
 
-[node name="Timer" type="Timer" parent="Node2/interactiveUI2/CollisionShape2D2"]
+[node name="Timer" type="Timer" parent="InteractiveUI/interactiveUI2/CollisionShape2D2"]
 wait_time = 2.0
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2/interactiveUI2/CollisionShape2D2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractiveUI/interactiveUI2/CollisionShape2D2"]
 libraries = {
 "": SubResource("AnimationLibrary_0qc1m")
 }
 
-[node name="ColorRect" type="ColorRect" parent="Node2/interactiveUI2/CollisionShape2D2/AnimationPlayer"]
+[node name="ColorRect" type="ColorRect" parent="InteractiveUI/interactiveUI2/CollisionShape2D2/AnimationPlayer"]
 offset_left = -2794.0
 offset_top = -3246.0
 offset_right = 8067.0
 offset_bottom = -2422.0
 color = Color(0, 0, 0, 0)
 
-[node name="interactiveUI" parent="Node2" instance=ExtResource("5_brayo")]
+[node name="interactiveUI" parent="InteractiveUI" instance=ExtResource("5_brayo")]
 position = Vector2(1031, -200)
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Node2/interactiveUI"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InteractiveUI/interactiveUI"]
 position = Vector2(0, -100.75)
 shape = SubResource("RectangleShape2D_mo84m")
 script = ExtResource("7_f5jan")
 
-[node name="Timer" type="Timer" parent="Node2/interactiveUI/CollisionShape2D2"]
+[node name="Timer" type="Timer" parent="InteractiveUI/interactiveUI/CollisionShape2D2"]
 unique_name_in_owner = true
 wait_time = 2.0
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Node2/interactiveUI/CollisionShape2D2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractiveUI/interactiveUI/CollisionShape2D2"]
 unique_name_in_owner = true
 root_node = NodePath("ColorRect")
 libraries = {
 "": SubResource("AnimationLibrary_1yk1x")
 }
 
-[node name="ColorRect" type="ColorRect" parent="Node2/interactiveUI/CollisionShape2D2/AnimationPlayer"]
+[node name="ColorRect" type="ColorRect" parent="InteractiveUI/interactiveUI/CollisionShape2D2/AnimationPlayer"]
 offset_left = -8569.0
 offset_top = -6790.75
 offset_right = 9876.0
@@ -459,46 +430,93 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("8_22slv")
 theme_override_font_sizes/font_size = 150
 text = "Saving"
+metadata/_edit_lock_ = true
 
 [node name="Timer" type="Timer" parent="SavingLabel"]
 
-[node name="Node" type="Node" parent="."]
+[node name="Map" type="Node" parent="."]
 
-[node name="Sprite2D2" type="Sprite2D" parent="Node"]
+[node name="Sprite2D2" type="Sprite2D" parent="Map"]
 z_index = -1
 position = Vector2(6920, -489)
 scale = Vector2(1, 0.998148)
 texture = ExtResource("9_d6486")
 flip_h = true
+metadata/_edit_lock_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="Node"]
+[node name="Sprite2D" type="Sprite2D" parent="Map"]
 z_index = -1
 position = Vector2(5000, -490)
 texture = ExtResource("9_d6486")
+metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Map"]
 z_index = -2
 position = Vector2(4999, -593)
 sprite_frames = SubResource("SpriteFrames_xkwfo")
 autoplay = "default"
+metadata/_edit_lock_ = true
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Node"]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="Map"]
 z_index = -2
 position = Vector2(6919, -593)
 sprite_frames = SubResource("SpriteFrames_xkwfo")
 autoplay = "default"
 flip_h = true
+metadata/_edit_lock_ = true
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Beach" type="AnimatedSprite2D" parent="Map"]
+z_index = -1
+position = Vector2(961, -88)
+sprite_frames = SubResource("SpriteFrames_wfrxb")
+autoplay = "default"
+frame_progress = 0.85345
+metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4984, -561)
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_8obkk")
+[node name="Sprite2D3" type="Sprite2D" parent="Map"]
+z_index = -2
+position = Vector2(-947, -561)
+scale = Vector2(1, 1.11806)
+texture = ExtResource("12_1osy7")
+metadata/_edit_lock_ = true
 
-[connection signal="body_entered" from="Node2/interactiveUI2" to="Node2/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_entered"]
-[connection signal="body_exited" from="Node2/interactiveUI2" to="Node2/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_exited"]
-[connection signal="body_entered" from="Node2/interactiveUI" to="Node2/interactiveUI/CollisionShape2D2" method="_on_interactive_ui_body_entered"]
-[connection signal="body_exited" from="Node2/interactiveUI" to="Node2/interactiveUI/CollisionShape2D2" method="_on_interactive_ui_body_exited"]
-[connection signal="timeout" from="Node2/interactiveUI/CollisionShape2D2/Timer" to="Node2/interactiveUI/CollisionShape2D2" method="_on_timer_timeout"]
+[node name="Sprite2D3" type="Sprite2D" parent="Map/Sprite2D3"]
+z_index = -2
+position = Vector2(-827, -63.5031)
+scale = Vector2(1, 1.11806)
+texture = ExtResource("12_1osy7")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Map"]
+z_index = -2
+position = Vector2(967, -559)
+scale = Vector2(1, 1.12222)
+texture = ExtResource("13_jgudx")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Map"]
+position = Vector2(-992, -87)
+sprite_frames = SubResource("SpriteFrames_e2jcs")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="Map"]
+position = Vector2(-2705, 4)
+sprite_frames = SubResource("SpriteFrames_ota7w")
+metadata/_edit_lock_ = true
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="Map"]
+position = Vector2(-3091, -4)
+sprite_frames = SubResource("SpriteFrames_ota7w")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(126, -256)
+scale = Vector2(0.145916, 0.145916)
+texture = ExtResource("15_rwxi5")
+
+[connection signal="body_entered" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_entered"]
+[connection signal="body_exited" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_exited"]
+[connection signal="timeout" from="InteractiveUI/interactiveUI2/CollisionShape2D2/Timer" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_timer_timeout"]
+[connection signal="body_entered" from="InteractiveUI/interactiveUI" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_interactive_ui_body_entered"]
+[connection signal="body_exited" from="InteractiveUI/interactiveUI" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_interactive_ui_body_exited"]
+[connection signal="timeout" from="InteractiveUI/interactiveUI/CollisionShape2D2/Timer" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_timer_timeout"]
 [connection signal="timeout" from="SavingLabel/Timer" to="." method="_on_timer_timeout"]
