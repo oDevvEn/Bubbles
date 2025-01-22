@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://5lf8ispiq4cx"]
+[gd_scene load_steps=21 format=3 uid="uid://cb2v4dy4j6g5w"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_4gvtr"]
 [ext_resource type="Texture2D" uid="uid://1adnwa7gst12" path="res://assets/WalkAnimSpriteSheet.png" id="2_pt266"]
@@ -123,9 +123,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdj5h"]
-radius = 60.0
-height = 396.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uath8"]
+size = Vector2(120, 394)
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_4gvtr")
@@ -136,5 +135,5 @@ sprite_frames = SubResource("SpriteFrames_81wv1")
 animation = &"walk"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(57, -224)
-shape = SubResource("CapsuleShape2D_bdj5h")
+position = Vector2(54, -217)
+shape = SubResource("RectangleShape2D_uath8")
