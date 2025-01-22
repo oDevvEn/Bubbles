@@ -10,3 +10,7 @@ script = ExtResource("1_3xh5h")
 [node name="player" parent="." instance=ExtResource("3_ucrm3")]
 
 [node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]
+position = Vector2(123.5, -124.5)
+scale = Vector2(1.76563, 1.76563)
+
+[node name="Camera2D" type="Camera2D" parent="player"]
