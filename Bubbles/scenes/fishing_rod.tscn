@@ -1,14 +1,36 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn6es4mb7jm3w"]
+[gd_scene load_steps=8 format=3 uid="uid://dn6es4mb7jm3w"]
 
 [ext_resource type="Texture2D" uid="uid://bvnlvuhbhdwej" path="res://assets/fishingRod.png" id="1_lts1u"]
 [ext_resource type="Script" path="res://scripts/fishingRod.gd" id="1_twmh0"]
 [ext_resource type="Texture2D" uid="uid://dbdrp86uo23d1" path="res://assets/bobber.png" id="2_a4e4p"]
+[ext_resource type="Texture2D" uid="uid://cvu2akkmgggus" path="res://assets/Bubble.png" id="4_yejgl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_naauj"]
 size = Vector2(12, 22)
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_ilua0"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lcnbu"]
+lifetime_randomness = 0.5
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(32, 1, 1)
+angle_min = -720.0
+angle_max = 720.0
+inherit_velocity_ratio = 1.0
+direction = Vector3(0, -1, 0)
+spread = 60.0
+initial_velocity_max = 128.0
+gravity = Vector3(0, 98, 0)
+anim_offset_max = 1.0
+
 [node name="fishingRod" type="Sprite2D"]
 texture = ExtResource("1_lts1u")
+offset = Vector2(-0.045, 0)
 script = ExtResource("1_twmh0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -30,7 +52,10 @@ value = 100.0
 show_percentage = false
 
 [node name="Bobber" type="RigidBody2D" parent="."]
-visible = false
+top_level = true
+position = Vector2(45.965, 0)
+collision_layer = 0
+lock_rotation = true
 
 [node name="BobberSprite" type="Sprite2D" parent="Bobber"]
 texture = ExtResource("2_a4e4p")
@@ -42,10 +67,29 @@ disabled = true
 [node name="BobberTip" type="Marker2D" parent="Bobber"]
 position = Vector2(0, -11)
 
+[node name="RayCast2D" type="RayCast2D" parent="Bobber"]
+target_position = Vector2(0, 13)
+collision_mask = 2
+collide_with_areas = true
+
+[node name="BubbleParticles" type="GPUParticles2D" parent="Bobber"]
+material = SubResource("CanvasItemMaterial_ilua0")
+position = Vector2(-45.965, 0)
+emitting = false
+amount = 12
+process_material = SubResource("ParticleProcessMaterial_lcnbu")
+texture = ExtResource("4_yejgl")
+lifetime = 2.0
+
 [node name="FishingRodTip" type="Marker2D" parent="."]
-position = Vector2(27.3333, -23.3333)
+position = Vector2(29, -25)
 
 [node name="FishingLine" type="Line2D" parent="."]
 visible = false
 top_level = true
 width = 2.0
+
+[node name="CastTime" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CastTime" to="." method="_on_cast_time_timeout"]

@@ -3,6 +3,8 @@ extends Sprite2D
 var heldTime : float = 0
 var cast : bool = false
 var canCast : bool = true
+var colliding : bool = false
+var catching : bool = false
 
 @onready var playerSprite : AnimatedSprite2D = get_parent().get_node("AnimatedSprite2D")
 @onready var progressBar : ProgressBar = $CanvasLayer/ProgressBar
@@ -13,6 +15,10 @@ var canCast : bool = true
 @onready var rodTip : Marker2D = $FishingRodTip
 @onready var line : Line2D = $FishingLine
 
+@onready var raycast : RayCast2D = $Bobber/RayCast2D
+@onready var castTimer : Timer = $CastTime
+@onready var bubbles : GPUParticles2D = $Bobber/BubbleParticles
+
 func _process(delta: float) -> void:
 	# Retract
 	if Input.is_action_just_pressed("interact"):
@@ -22,6 +28,10 @@ func _process(delta: float) -> void:
 			bobber.visible = false
 			line.visible = false
 			bobberCollider.disabled = true
+
+			if catching:
+				catching = false
+				print("catched fishor dead body perhaps owo")
 
 		elif not canCast:
 			canCast = true
@@ -41,15 +51,46 @@ func _process(delta: float) -> void:
 		line.visible = true
 		bobberCollider.disabled = false
 
-		bobber.global_transform.origin = rodTip.global_position
+		bobber.global_transform.origin = rodTip.global_position + offset * scale
 		bobber.linear_velocity = Vector2(-heldTime * 500 * (int(playerSprite.flip_h) * 2 - 1), -heldTime * 100)
 		
 		heldTime = 0
 
-	# LINE update
 	if cast:
-		line.points = [rodTip.global_position, bobber.global_position + bobberTip.position]
+		# LINE update
+		line.points = [rodTip.global_position + offset * scale, bobber.global_position + bobberTip.position]
 
-	flip_h = playerSprite.flip_h
+		# Cast Time
+		var collision : Object = raycast.get_collider()
+		if collision and not colliding:
+			colliding = true
+			castTimer.wait_time = randf_range(1, 3)
+			castTimer.start()
+
+	# Rod flip update
+	flip_h = playerSprite.flip_h 
+	offset.x = abs(offset.x) * (int(flip_h) * -2 + 1)
 	rodTip.position.x = abs(rodTip.position.x) * (int(flip_h) * -2 + 1)
+
+func _on_cast_time_timeout() -> void:
+	if not catching:
+		catching = true
+		bubbles.emitting = true
+		castTimer.wait_time = randf_range(2, 4)
+	else:
+		catching = false
+		bubbles.emitting = false
+		castTimer.wait_time = randf_range(20, 40)
+
+
+
+
+
+
+
+
+
+
+
+
 

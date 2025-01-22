@@ -19,6 +19,6 @@ func setupButtons(choices:Array) -> void:
 		btn.text = choice
 		btn.position = Vector2(1920 - 400 - count*340, 235)
 		btn.add_theme_font_size_override("font_size", 36)
-		btn.connect("pressed", func(): click.emit(count))
+		btn.connect("pressed", func(): click.emit(count); queue_free())
 		add_child(btn)
 		count += 1

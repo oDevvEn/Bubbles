@@ -40,6 +40,8 @@ func _ready() -> void:
 	if loadData:
 		player.position = Vector2(loadData["positionX"], loadData["positionY"])
 		player.inventory = loadData["inventory"]
+	elif FileAccess.file_exists("user://gamesave.save"):
+		DirAccess.remove_absolute("user://gamesave.save")		
 	
 	#debug
 	var d : CanvasLayer = dialogue.instantiate()
@@ -50,4 +52,8 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("save"):
+		saveGame()
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		saveGame()
