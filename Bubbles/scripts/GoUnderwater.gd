@@ -10,7 +10,7 @@ func _process(delta: float) -> void:
 	
 
 func _on_timer_timeout():
-	player.position = Vector2(1000, 0)
+	player.position = Vector2(10000, 0)
 	
 
 

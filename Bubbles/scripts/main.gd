@@ -27,9 +27,8 @@ func loadGame() -> void:
 		player.position = Vector2(json.data["positionX"], json.data["positionY"])
 		player.inventory = json.data["inventory"]
 
-func _ready() -> void:
-	loadGame()
-	#debug
+
+	
 	var d : CanvasLayer = dialogue.instantiate()
 	d.setupDialogue(godot, "Godot", "meowwwwwwwwwww")
 	d.setupButtons(["meow", "meow 2"])
