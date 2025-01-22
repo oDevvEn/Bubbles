@@ -31,7 +31,7 @@ func _physics_process(delta: float) -> void:
 		sprite.play("walk")
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
-		sprite.stop()
+		sprite.pause()
 	
 
 

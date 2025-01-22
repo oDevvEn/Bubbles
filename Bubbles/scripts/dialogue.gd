@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 signal click(value)
 const button : PackedScene = preload("res://assets/dialogue_button.tscn")
