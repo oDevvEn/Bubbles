@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://bocyb38jktp4"]
+
+[ext_resource type="StyleBox" uid="uid://ddipsahywmq0t" path="res://assets/buttonThemeOverrideStyle.tres" id="1_eud6e"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kb4jh"]
+
+[node name="dialogueButton" type="Button"]
+offset_right = 280.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0.501961, 0.219608, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kb4jh")
+theme_override_styles/hover_pressed = ExtResource("1_eud6e")
+theme_override_styles/hover = ExtResource("1_eud6e")
+theme_override_styles/pressed = ExtResource("1_eud6e")
+theme_override_styles/normal = ExtResource("1_eud6e")
+text = "1234567890"

@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://g0u7cinao7cn"]
+[gd_scene load_steps=4 format=3 uid="uid://g0u7cinao7cn"]
 
 [ext_resource type="Script" path="res://scripts/dialogue.gd" id="1_x2qap"]
+[ext_resource type="Texture2D" uid="uid://cueysrxejss28" path="res://assets/DialogueBackground.png" id="2_auhup"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7ub7y"]
+texture = ExtResource("2_auhup")
 
 [node name="dialogue" type="Control"]
 layout_mode = 3
@@ -14,30 +18,42 @@ script = ExtResource("1_x2qap")
 [node name="Background" type="Panel" parent="."]
 layout_mode = 0
 offset_right = 1920.0
-offset_bottom = 270.0
+offset_bottom = 330.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_7ub7y")
 
 [node name="Picture" type="TextureRect" parent="Background"]
 layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 260.0
-offset_bottom = 260.0
+offset_left = 128.0
+offset_top = 55.0
+offset_right = 319.0
+offset_bottom = 246.0
 
 [node name="Name" type="RichTextLabel" parent="Background"]
 layout_mode = 0
-offset_left = 275.0
-offset_right = 1915.0
-offset_bottom = 90.0
-theme_override_font_sizes/bold_font_size = 65
+offset_left = 377.0
+offset_top = 55.0
+offset_right = 1839.0
+offset_bottom = 145.0
+theme_override_colors/default_color = Color(0.501961, 0.219608, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_outline_size = 4
+theme_override_font_sizes/bold_font_size = 62
 bbcode_enabled = true
 text = "[b]Godot[/b]"
 autowrap_mode = 0
 
 [node name="Dialogue" type="RichTextLabel" parent="Background"]
 layout_mode = 0
-offset_left = 275.0
-offset_top = 90.0
-offset_right = 1915.0
-offset_bottom = 270.0
-theme_override_font_sizes/normal_font_size = 40
+offset_left = 377.0
+offset_top = 132.0
+offset_right = 1839.0
+offset_bottom = 257.0
+theme_override_colors/default_color = Color(0.780392, 0.298039, 1, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_outline_size = 1
+theme_override_font_sizes/normal_font_size = 32
 text = "meowwwwwwwwwwwwwwwwwwwwwwwwwwww meow meow meow meow meow meowm opoewkemmwkoi"
