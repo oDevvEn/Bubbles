@@ -1,7 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://ct73b1qo6ffkm"]
-
-[ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="1_cayq6"]
-
-[node name="item" type="Area2D"]
-
-[node name="interactiveUI" parent="." instance=ExtResource("1_cayq6")]
