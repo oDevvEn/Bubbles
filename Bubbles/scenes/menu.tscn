@@ -118,7 +118,7 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_17cg6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vhqvn")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_lnbjt")
 theme_override_styles/normal = SubResource("StyleBoxTexture_1340n")
-text = "Start
+text = "New
 Game"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
