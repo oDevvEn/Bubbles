@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
 [ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
 [ext_resource type="Texture2D" uid="uid://bxl6maqmjwbl8" path="res://assets/BeachBackgroundSpriteSheet.png" id="5_cbpea"]
+[ext_resource type="Script" path="res://scripts/GoUnderwater.gd" id="7_f5jan"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2jvf"]
 atlas = ExtResource("4_t0dgo")
@@ -67,10 +68,6 @@ region = Rect2(9600, 0, 1920, 1080)
 atlas = ExtResource("5_cbpea")
 region = Rect2(11520, 0, 1920, 1080)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_155t5"]
-atlas = ExtResource("5_cbpea")
-region = Rect2(13440, 0, 1920, 1080)
-
 [sub_resource type="SpriteFrames" id="SpriteFrames_ttgeo"]
 animations = [{
 "frames": [{
@@ -96,15 +93,27 @@ animations = [{
 "texture": SubResource("AtlasTexture_hhoqn")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_155t5")
+"texture": SubResource("AtlasTexture_hhoqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8sge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlmjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0bvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g26k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1enq0")
 }],
 "loop": true,
 "name": &"default",
 "speed": 5.0
 }]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
-size = Vector2(2436, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mo84m"]
 size = Vector2(71, 603)
@@ -112,12 +121,16 @@ size = Vector2(71, 603)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkuyl"]
 distance = 304.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
+size = Vector2(2436, 100)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
 
 [node name="player" parent="." instance=ExtResource("3_ucrm3")]
+unique_name_in_owner = true
 z_index = 1
-position = Vector2(381, -108)
+position = Vector2(0, -100)
 
 [node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]
 position = Vector2(123.5, -124.5)
@@ -138,20 +151,31 @@ frame_progress = 0.85345
 z_index = -2
 position = Vector2(961, -545)
 sprite_frames = SubResource("SpriteFrames_ttgeo")
+autoplay = "default"
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="interactiveUIbody" type="StaticBody2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(695, -30)
-shape = SubResource("RectangleShape2D_rylii")
-
-[node name="interactiveUI" parent="StaticBody2D" instance=ExtResource("5_brayo")]
+[node name="interactiveUI" parent="interactiveUIbody" instance=ExtResource("5_brayo")]
 position = Vector2(1031, -200)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/interactiveUI"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactiveUIbody/interactiveUI"]
 shape = SubResource("RectangleShape2D_mo84m")
+script = ExtResource("7_f5jan")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="Timer" type="Timer" parent="interactiveUIbody/interactiveUI/CollisionShape2D"]
+wait_time = 2.0
+
+[node name="mapBoundaries" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="mapBoundaries"]
 position = Vector2(1372, 50)
 rotation = -1.5708
 shape = SubResource("WorldBoundaryShape2D_kkuyl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="mapBoundaries"]
+position = Vector2(695, -30)
+shape = SubResource("RectangleShape2D_rylii")
+
+[connection signal="body_entered" from="interactiveUIbody/interactiveUI" to="interactiveUIbody/interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_entered"]
+[connection signal="body_exited" from="interactiveUIbody/interactiveUI" to="interactiveUIbody/interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_exited"]
+[connection signal="timeout" from="interactiveUIbody/interactiveUI/CollisionShape2D/Timer" to="interactiveUIbody/interactiveUI/CollisionShape2D" method="_on_timer_timeout"]

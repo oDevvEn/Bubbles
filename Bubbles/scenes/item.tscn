@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://n5p65gtnds52"]
+[gd_scene load_steps=2 format=3 uid="uid://ct73b1qo6ffkm"]
 
-[ext_resource type="PackedScene" path="res://scenes/interactiveUI.tscn" id="1_cayq6"]
+[ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="1_cayq6"]
 
 [node name="item" type="Area2D"]
 
