@@ -37,6 +37,7 @@ texture = ExtResource("2_a4e4p")
 
 [node name="BobberCollider" type="CollisionShape2D" parent="Bobber"]
 shape = SubResource("RectangleShape2D_naauj")
+disabled = true
 
 [node name="BobberTip" type="Marker2D" parent="Bobber"]
 position = Vector2(0, -11)

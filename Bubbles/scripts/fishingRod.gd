@@ -7,6 +7,7 @@ var canCast : bool = true
 @onready var playerSprite : AnimatedSprite2D = get_parent().get_node("AnimatedSprite2D")
 @onready var progressBar : ProgressBar = $CanvasLayer/ProgressBar
 @onready var bobber : RigidBody2D = $Bobber
+@onready var bobberCollider : CollisionShape2D = $Bobber/BobberCollider
 
 @onready var bobberTip : Marker2D = $Bobber/BobberTip
 @onready var rodTip : Marker2D = $FishingRodTip
@@ -20,6 +21,8 @@ func _process(delta: float) -> void:
 			canCast = false
 			bobber.visible = false
 			line.visible = false
+			bobberCollider.disabled = true
+
 		elif not canCast:
 			canCast = true
 
@@ -36,6 +39,7 @@ func _process(delta: float) -> void:
 		progressBar.visible = false
 		bobber.visible = true
 		line.visible = true
+		bobberCollider.disabled = false
 
 		bobber.global_transform.origin = rodTip.global_position
 		bobber.linear_velocity = Vector2(-heldTime * 500 * (int(playerSprite.flip_h) * 2 - 1), -heldTime * 100)

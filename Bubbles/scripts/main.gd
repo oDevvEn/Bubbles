@@ -4,6 +4,8 @@ extends Node2D
 @onready var dialogue : PackedScene = preload("res://scenes/dialogue.tscn") #debug
 @onready var godot : CompressedTexture2D = load("res://assets/icon.svg") #debug
 
+var loadData : Dictionary
+
 func saveGame() -> void:
 	var file : FileAccess = FileAccess.open("user://gamesave.save", FileAccess.WRITE)
 	var data : Dictionary = {
@@ -24,11 +26,16 @@ func loadGame() -> void:
 		print("bads ave file uh oh")
 		DirAccess.remove_absolute("user://gamesave.save")
 	else:
-		player.position = Vector2(json.data["positionX"], json.data["positionY"])
-		player.inventory = json.data["inventory"]
+		loadData = json.data		
 
 
+func _ready() -> void:
+	# Load player data
+	if loadData:
+		player.position = Vector2(loadData["positionX"], loadData["positionY"])
+		player.inventory = loadData["inventory"]
 	
+	#debug
 	var d : CanvasLayer = dialogue.instantiate()
 	d.setupDialogue(godot, "Godot", "meowwwwwwwwwww")
 	d.setupButtons(["meow", "meow 2"])
@@ -36,5 +43,5 @@ func loadGame() -> void:
 	add_child(d)
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("save"):
 		saveGame()
