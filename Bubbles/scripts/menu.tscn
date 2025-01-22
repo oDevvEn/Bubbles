@@ -1,0 +1,150 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2kls8lwp0jmw"]
+
+[ext_resource type="Script" path="res://scripts/menu.gd" id="1_o8wko"]
+[ext_resource type="Texture2D" uid="uid://s0k03o7hheuf" path="res://assets/PlayButton.png" id="2_7rs21"]
+[ext_resource type="FontFile" uid="uid://d3yy3v3k0e07" path="res://assets/Bubble.ttf" id="2_t8l0l"]
+[ext_resource type="Texture2D" uid="uid://04b86ue8x37n" path="res://assets/SinkingSoulLogo.png" id="4_imme7"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_how2p"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_17cg6"]
+texture = ExtResource("2_7rs21")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vhqvn"]
+texture = ExtResource("2_7rs21")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lnbjt"]
+texture = ExtResource("2_7rs21")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1340n"]
+texture = ExtResource("2_7rs21")
+
+[sub_resource type="Animation" id="Animation_bxytw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/ColorRect:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2283, 97)]
+}
+
+[sub_resource type="Animation" id="Animation_qx6nk"]
+resource_name = "fadeToBlack"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/ColorRect:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2283, 97), Vector2(2283, 1500)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_is0of"]
+_data = {
+"RESET": SubResource("Animation_bxytw"),
+"fadeToBlack": SubResource("Animation_qx6nk")
+}
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_o8wko")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Button" type="Button" parent="."]
+offset_left = -50.0
+offset_top = 14.0
+offset_right = 998.0
+offset_bottom = 550.0
+theme_override_colors/font_color = Color(0.501961, 0.219608, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_t8l0l")
+theme_override_font_sizes/font_size = 110
+theme_override_styles/focus = SubResource("StyleBoxEmpty_how2p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_17cg6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vhqvn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lnbjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1340n")
+text = "Load
+Game"
+
+[node name="Button2" type="Button" parent="."]
+offset_left = -998.0
+offset_top = 14.0
+offset_right = 50.0
+offset_bottom = 550.0
+theme_override_colors/font_color = Color(0.501961, 0.219608, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_t8l0l")
+theme_override_font_sizes/font_size = 110
+theme_override_styles/focus = SubResource("StyleBoxEmpty_how2p")
+theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_17cg6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_vhqvn")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_lnbjt")
+theme_override_styles/normal = SubResource("StyleBoxTexture_1340n")
+text = "Start
+Game"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_is0of")
+}
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+z_index = 1
+offset_left = -1130.0
+offset_top = -770.0
+offset_right = 1153.0
+offset_bottom = -673.0
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -300)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.2
+
+[node name="SinkingSoulLogo" type="Sprite2D" parent="."]
+position = Vector2(0, -226)
+scale = Vector2(0.6976, 0.697601)
+texture = ExtResource("4_imme7")
+
+[connection signal="pressed" from="Button" to="." method="_on_button1_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
