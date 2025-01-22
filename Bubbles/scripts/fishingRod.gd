@@ -47,4 +47,5 @@ func _process(delta: float) -> void:
 		line.points = [rodTip.global_position, bobber.global_position + bobberTip.position]
 
 	flip_h = playerSprite.flip_h
+	rodTip.position.x = abs(rodTip.position.x) * (int(flip_h) * -2 + 1)
 
