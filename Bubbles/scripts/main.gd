@@ -3,6 +3,8 @@ extends Node2D
 @onready var player : CharacterBody2D = $player
 @onready var dialogue : PackedScene = preload("res://scenes/dialogue.tscn") #debug
 @onready var godot : CompressedTexture2D = load("res://assets/icon.svg") #debug
+@onready var saving: Label = $SavingLabel
+@onready var timer: Timer = $SavingLabel/Timer
 
 var loadData : Dictionary
 
@@ -11,9 +13,13 @@ func saveGame() -> void:
 	var data : Dictionary = {
 		"positionX": player.position.x,
 		"positionY": player.position.y,
-		"inventory": player.inventory
-	}
+		"inventory": player.inventory}
+	saving.position = Vector2(player.position.x-270, (player.position.y-900))
+	timer.start()
 	file.store_line(JSON.stringify(data))
+
+func _on_timer_timeout() -> void:
+	saving.position = Vector2(-100000, -100000)
 
 func loadGame() -> void:
 	if not FileAccess.file_exists("user://gamesave.save"):
