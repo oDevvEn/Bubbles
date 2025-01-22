@@ -37,7 +37,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_661gi"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
+size = Vector2(2436, 100)
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
@@ -53,6 +54,7 @@ scale = Vector2(1.76563, 1.76563)
 [node name="Camera2D" type="Camera2D" parent="player"]
 
 [node name="Beach" type="AnimatedSprite2D" parent="."]
+z_index = -1
 position = Vector2(963, -136)
 sprite_frames = SubResource("SpriteFrames_wfrxb")
 autoplay = "default"
@@ -62,5 +64,5 @@ frame_progress = 0.85345
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(82, -95)
-shape = SubResource("WorldBoundaryShape2D_661gi")
+position = Vector2(695, -30)
+shape = SubResource("RectangleShape2D_rylii")
