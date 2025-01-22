@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=13 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
+[ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2jvf"]
 atlas = ExtResource("4_t0dgo")
@@ -40,6 +41,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
 size = Vector2(2436, 100)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo84m"]
+size = Vector2(71, 603)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkuyl"]
+distance = 304.0
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
 
@@ -52,6 +59,7 @@ position = Vector2(123.5, -124.5)
 scale = Vector2(1.76563, 1.76563)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+offset = Vector2(0, -500)
 
 [node name="Beach" type="AnimatedSprite2D" parent="."]
 z_index = -1
@@ -66,3 +74,14 @@ frame_progress = 0.85345
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(695, -30)
 shape = SubResource("RectangleShape2D_rylii")
+
+[node name="interactiveUI" parent="StaticBody2D" instance=ExtResource("5_brayo")]
+position = Vector2(1031, -200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D/interactiveUI"]
+shape = SubResource("RectangleShape2D_mo84m")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1372, 50)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_kkuyl")
