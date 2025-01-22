@@ -1,8 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwue65vwpy7cf"]
+[gd_scene load_steps=13 format=3 uid="uid://d2kls8lwp0jmw"]
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_o8wko"]
 [ext_resource type="Texture2D" uid="uid://s0k03o7hheuf" path="res://assets/PlayButton.png" id="2_7rs21"]
-[ext_resource type="FontFile" uid="uid://dt6cg4pwmnjvs" path="res://assets/Bubble.ttf" id="2_t8l0l"]
+[ext_resource type="FontFile" uid="uid://d3yy3v3k0e07" path="res://assets/Bubble.ttf" id="2_t8l0l"]
 [ext_resource type="Texture2D" uid="uid://04b86ue8x37n" path="res://assets/SinkingSoulLogo.png" id="4_imme7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_how2p"]
