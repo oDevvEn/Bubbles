@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=30 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxl6maqmjwbl8" path="res://assets/BeachBackgroundSpriteSheet.png" id="5_cbpea"]
 [ext_resource type="Script" path="res://scripts/GoUnderwater.gd" id="7_f5jan"]
 [ext_resource type="FontFile" uid="uid://dlmi3qmev1ipy" path="res://assets/Bubble gum.otf" id="8_22slv"]
+[ext_resource type="Texture2D" uid="uid://dpxkkn8wjj4ux" path="res://assets/UnderwaterForeground.png" id="9_d6486"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2jvf"]
 atlas = ExtResource("4_t0dgo")
@@ -120,7 +121,7 @@ animations = [{
 size = Vector2(837.001, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
-size = Vector2(2436, 100)
+size = Vector2(10608, 100)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rd4oo"]
 normal = Vector2(0.999975, -0.00700547)
@@ -190,13 +191,16 @@ _data = {
 "fadeBlack": SubResource("Animation_v0tui")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8obkk"]
+size = Vector2(7.99997, 83)
+
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
 
 [node name="player" parent="." instance=ExtResource("3_ucrm3")]
 unique_name_in_owner = true
 z_index = 1
-position = Vector2(0, -100)
+position = Vector2(0, -64)
 
 [node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]
 position = Vector2(123.5, -124.5)
@@ -207,7 +211,7 @@ offset = Vector2(0, -433)
 
 [node name="Beach" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(961, -136)
+position = Vector2(961, -88)
 sprite_frames = SubResource("SpriteFrames_wfrxb")
 autoplay = "default"
 frame = 2
@@ -215,7 +219,8 @@ frame_progress = 0.85345
 
 [node name="BeachBackground" type="AnimatedSprite2D" parent="."]
 z_index = -2
-position = Vector2(961, -545)
+position = Vector2(961, -566)
+scale = Vector2(1, 1.11806)
 sprite_frames = SubResource("SpriteFrames_ttgeo")
 autoplay = "default"
 
@@ -227,7 +232,7 @@ rotation = -1.5708
 shape = SubResource("RectangleShape2D_2cafx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mapBoundaries"]
-position = Vector2(695, -30)
+position = Vector2(4781, -30)
 shape = SubResource("RectangleShape2D_rylii")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="mapBoundaries"]
@@ -245,6 +250,7 @@ script = ExtResource("7_f5jan")
 
 [node name="Timer" type="Timer" parent="interactiveUI/CollisionShape2D"]
 wait_time = 2.0
+one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="interactiveUI/CollisionShape2D"]
 root_node = NodePath("ColorRect")
@@ -272,6 +278,24 @@ theme_override_font_sizes/font_size = 150
 text = "Saving"
 
 [node name="Timer" type="Timer" parent="SavingLabel"]
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(6850, -579)
+scale = Vector2(1, 1.07037)
+texture = ExtResource("9_d6486")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(5000, -540)
+texture = ExtResource("9_d6486")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(4984, -561)
+scale = Vector2(10, 10)
+shape = SubResource("RectangleShape2D_8obkk")
 
 [connection signal="body_entered" from="interactiveUI" to="interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_entered"]
 [connection signal="body_exited" from="interactiveUI" to="interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_exited"]
