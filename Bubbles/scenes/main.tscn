@@ -1,16 +1,66 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddre760raai0o"]
+[gd_scene load_steps=10 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
-[ext_resource type="PackedScene" uid="uid://5lf8ispiq4cx" path="res://scenes/player.tscn" id="3_ucrm3"]
+[ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
+[ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g2jvf"]
+atlas = ExtResource("4_t0dgo")
+region = Rect2(0, 810, 1920, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bljaj"]
+atlas = ExtResource("4_t0dgo")
+region = Rect2(1920, 810, 1920, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xtck"]
+atlas = ExtResource("4_t0dgo")
+region = Rect2(3840, 810, 1920, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wfrxb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g2jvf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bljaj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xtck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bljaj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_661gi"]
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
 
 [node name="player" parent="." instance=ExtResource("3_ucrm3")]
+z_index = 1
+position = Vector2(381, -108)
 
 [node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]
 position = Vector2(123.5, -124.5)
 scale = Vector2(1.76563, 1.76563)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
+
+[node name="Beach" type="AnimatedSprite2D" parent="."]
+position = Vector2(963, -136)
+sprite_frames = SubResource("SpriteFrames_wfrxb")
+autoplay = "default"
+frame = 2
+frame_progress = 0.85345
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(82, -95)
+shape = SubResource("WorldBoundaryShape2D_661gi")
