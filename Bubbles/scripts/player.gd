@@ -5,6 +5,7 @@ var inventory = {"missingPoster": false,
 "necklace":false, "fishingRod": false}
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var col: CollisionShape2D = $CollisionShape2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -23,8 +24,12 @@ func _physics_process(delta: float) -> void:
 	
 	if direction > 0:
 		sprite.flip_h = false
+		if(col.position.x < 0):
+			col.position.x *= -1
 	elif direction < 0:
 		sprite.flip_h = true
+		if(col.position.x > 0):
+			col.position.x *= -1
 	
 	if direction:
 		velocity.x = direction * SPEED
