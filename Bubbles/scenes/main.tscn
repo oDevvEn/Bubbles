@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-[gd_scene load_steps=51 format=3 uid="uid://fhuh2vsdu6h1"]
-=======
-[gd_scene load_steps=31 format=3 uid="uid://fhuh2vsdu6h1"]
->>>>>>> Stashed changes
+[gd_scene load_steps=52 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
@@ -35,6 +31,9 @@ size = Vector2(25.6, 71.6)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8obkk"]
 size = Vector2(7.99997, 83)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sixln"]
+size = Vector2(87, 838)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qwqp"]
 size = Vector2(0.729999, 3.2)
@@ -325,9 +324,6 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_34g3s"]
-size = Vector2(1090, 109)
-
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
 
@@ -340,8 +336,8 @@ position = Vector2(-339, -67)
 offset = Vector2(0, -433)
 
 [node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]
+position = Vector2(123.5, -124.5)
 scale = Vector2(1.76563, 1.76563)
-offset = Vector2(69.906, -70.472)
 
 [node name="mapBoundaries" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true
@@ -369,6 +365,10 @@ shape = SubResource("RectangleShape2D_o3t4m")
 position = Vector2(4984, -561)
 scale = Vector2(10, 10)
 shape = SubResource("RectangleShape2D_8obkk")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="mapBoundaries"]
+position = Vector2(6727.5, -533)
+shape = SubResource("RectangleShape2D_sixln")
 
 [node name="InteractiveUI" type="Node" parent="."]
 
@@ -492,6 +492,7 @@ z_index = -2
 position = Vector2(-827, -63.5031)
 scale = Vector2(1, 1.11806)
 texture = ExtResource("12_1osy7")
+metadata/_edit_lock_ = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="Map"]
 z_index = -2
@@ -499,6 +500,13 @@ position = Vector2(967, -559)
 scale = Vector2(1, 1.12222)
 texture = ExtResource("13_jgudx")
 metadata/_edit_lock_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Map/Sprite2D4"]
+z_index = -2
+position = Vector2(1910, -4.87129)
+scale = Vector2(1, 1.00418)
+texture = ExtResource("13_jgudx")
+flip_h = true
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="Map"]
 position = Vector2(-992, -87)
@@ -515,37 +523,22 @@ position = Vector2(-3091, -4)
 sprite_frames = SubResource("SpriteFrames_ota7w")
 metadata/_edit_lock_ = true
 
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="Map"]
+position = Vector2(2641, -91)
+scale = Vector2(1, 1.02222)
+sprite_frames = SubResource("SpriteFrames_ota7w")
+flip_h = true
+metadata/_edit_lock_ = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(126, -256)
 scale = Vector2(0.145916, 0.145916)
 texture = ExtResource("15_rwxi5")
 
-<<<<<<< Updated upstream
 [connection signal="body_entered" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_entered"]
 [connection signal="body_exited" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_exited"]
 [connection signal="timeout" from="InteractiveUI/interactiveUI2/CollisionShape2D2/Timer" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_timer_timeout"]
 [connection signal="body_entered" from="InteractiveUI/interactiveUI" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_interactive_ui_body_entered"]
 [connection signal="body_exited" from="InteractiveUI/interactiveUI" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_interactive_ui_body_exited"]
 [connection signal="timeout" from="InteractiveUI/interactiveUI/CollisionShape2D2/Timer" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_timer_timeout"]
-=======
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(4984, -561)
-scale = Vector2(10, 10)
-shape = SubResource("RectangleShape2D_8obkk")
-
-[node name="fisghajble#" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 2
-
-[node name="fishable" type="CollisionShape2D" parent="fisghajble#"]
-top_level = true
-position = Vector2(535, -44.5)
-shape = SubResource("RectangleShape2D_34g3s")
-
-[connection signal="body_entered" from="interactiveUI" to="interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_entered"]
-[connection signal="body_exited" from="interactiveUI" to="interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_exited"]
-[connection signal="timeout" from="interactiveUI/CollisionShape2D/Timer" to="interactiveUI/CollisionShape2D" method="_on_timer_timeout"]
->>>>>>> Stashed changes
 [connection signal="timeout" from="SavingLabel/Timer" to="." method="_on_timer_timeout"]
