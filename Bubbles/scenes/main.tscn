@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=27 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
@@ -115,14 +115,79 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo84m"]
-size = Vector2(71, 603)
-
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kkuyl"]
-distance = 304.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cafx"]
+size = Vector2(837.001, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
 size = Vector2(2436, 100)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_rd4oo"]
+normal = Vector2(0.999975, -0.00700547)
+distance = -638.774
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mo84m"]
+size = Vector2(71, 401.5)
+
+[sub_resource type="Animation" id="Animation_v0tui"]
+resource_name = "fadeBlack"
+length = 4.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 4, 4.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(18445, 297), Vector2(18445, 10000), Vector2(18445, 10000), Vector2(18445, 227)]
+}
+
+[sub_resource type="Animation" id="Animation_mycet"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18445, 297)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1yk1x"]
+_data = {
+"RESET": SubResource("Animation_mycet"),
+"fadeBlack": SubResource("Animation_v0tui")
+}
 
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
@@ -153,29 +218,46 @@ position = Vector2(961, -545)
 sprite_frames = SubResource("SpriteFrames_ttgeo")
 autoplay = "default"
 
-[node name="interactiveUIbody" type="StaticBody2D" parent="."]
-
-[node name="interactiveUI" parent="interactiveUIbody" instance=ExtResource("5_brayo")]
-position = Vector2(1031, -200)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="interactiveUIbody/interactiveUI"]
-shape = SubResource("RectangleShape2D_mo84m")
-script = ExtResource("7_f5jan")
-
-[node name="Timer" type="Timer" parent="interactiveUIbody/interactiveUI/CollisionShape2D"]
-wait_time = 2.0
-
 [node name="mapBoundaries" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="mapBoundaries"]
-position = Vector2(1372, 50)
+position = Vector2(1146, -371)
 rotation = -1.5708
-shape = SubResource("WorldBoundaryShape2D_kkuyl")
+shape = SubResource("RectangleShape2D_2cafx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="mapBoundaries"]
 position = Vector2(695, -30)
 shape = SubResource("RectangleShape2D_rylii")
 
-[connection signal="body_entered" from="interactiveUIbody/interactiveUI" to="interactiveUIbody/interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_entered"]
-[connection signal="body_exited" from="interactiveUIbody/interactiveUI" to="interactiveUIbody/interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_exited"]
-[connection signal="timeout" from="interactiveUIbody/interactiveUI/CollisionShape2D/Timer" to="interactiveUIbody/interactiveUI/CollisionShape2D" method="_on_timer_timeout"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="mapBoundaries"]
+position = Vector2(1146, -371)
+rotation = -1.5708
+shape = SubResource("WorldBoundaryShape2D_rd4oo")
+
+[node name="interactiveUI" parent="." instance=ExtResource("5_brayo")]
+position = Vector2(1031, -200)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="interactiveUI"]
+position = Vector2(0, -100.75)
+shape = SubResource("RectangleShape2D_mo84m")
+script = ExtResource("7_f5jan")
+
+[node name="Timer" type="Timer" parent="interactiveUI/CollisionShape2D"]
+wait_time = 2.0
+
+[node name="ColorRect" type="ColorRect" parent="interactiveUI/CollisionShape2D"]
+offset_left = -9600.0
+offset_top = -6490.0
+offset_right = 8845.0
+offset_bottom = -6193.0
+color = Color(1, 1, 1, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="interactiveUI/CollisionShape2D"]
+root_node = NodePath("../ColorRect")
+libraries = {
+"": SubResource("AnimationLibrary_1yk1x")
+}
+
+[connection signal="body_entered" from="interactiveUI" to="interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_entered"]
+[connection signal="body_exited" from="interactiveUI" to="interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_exited"]
+[connection signal="timeout" from="interactiveUI/CollisionShape2D/Timer" to="interactiveUI/CollisionShape2D" method="_on_timer_timeout"]
