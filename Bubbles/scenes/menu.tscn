@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/menu.gd" id="1_o8wko"]
 [ext_resource type="Texture2D" uid="uid://s0k03o7hheuf" path="res://assets/PlayButton.png" id="2_7rs21"]
-[ext_resource type="FontFile" uid="uid://d3yy3v3k0e07" path="res://assets/Bubble.ttf" id="2_t8l0l"]
+[ext_resource type="FontFile" uid="uid://dlmi3qmev1ipy" path="res://assets/Bubble gum.otf" id="2_t8fgm"]
 [ext_resource type="Texture2D" uid="uid://04b86ue8x37n" path="res://assets/SinkingSoulLogo.png" id="4_imme7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_how2p"]
@@ -83,6 +83,14 @@ _data = {
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_o8wko")
 
+[node name="ColorRect" type="ColorRect" parent="."]
+z_index = -1
+offset_left = -1241.0
+offset_top = -587.0
+offset_right = 1156.0
+offset_bottom = 628.0
+color = Color(0.238782, 0.441693, 0.590654, 1)
+
 [node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="Button" type="Button" parent="."]
@@ -90,11 +98,11 @@ offset_left = -50.0
 offset_top = 14.0
 offset_right = 998.0
 offset_bottom = 550.0
-theme_override_colors/font_color = Color(0.501961, 0.219608, 1, 1)
+theme_override_colors/font_color = Color(0.427451, 0.0901961, 0.129412, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("2_t8l0l")
-theme_override_font_sizes/font_size = 110
+theme_override_fonts/font = ExtResource("2_t8fgm")
+theme_override_font_sizes/font_size = 90
 theme_override_styles/focus = SubResource("StyleBoxEmpty_how2p")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_17cg6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vhqvn")
@@ -108,11 +116,11 @@ offset_left = -998.0
 offset_top = 14.0
 offset_right = 50.0
 offset_bottom = 550.0
-theme_override_colors/font_color = Color(0.501961, 0.219608, 1, 1)
+theme_override_colors/font_color = Color(0.427451, 0.0901961, 0.129412, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 6
-theme_override_fonts/font = ExtResource("2_t8l0l")
-theme_override_font_sizes/font_size = 110
+theme_override_fonts/font = ExtResource("2_t8fgm")
+theme_override_font_sizes/font_size = 90
 theme_override_styles/focus = SubResource("StyleBoxEmpty_how2p")
 theme_override_styles/hover_pressed = SubResource("StyleBoxTexture_17cg6")
 theme_override_styles/hover = SubResource("StyleBoxTexture_vhqvn")
