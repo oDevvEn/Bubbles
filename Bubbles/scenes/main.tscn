@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=55 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
@@ -15,7 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://ckm8u52aur1h3" path="res://assets/BeachBackground.png" id="13_jgudx"]
 [ext_resource type="Texture2D" uid="uid://ci304ckejntvg" path="res://assets/DockForegroundSpriteSheet.png" id="14_q2hx8"]
 [ext_resource type="Texture2D" uid="uid://d4jucupsuqt28" path="res://assets/VillagerFish.png" id="15_rwxi5"]
-[ext_resource type="Script" path="res://scenes/interactive_ui3.gd" id="16_c5igg"]
+[ext_resource type="Script" path="res://scripts/interactive_ui3.gd" id="16_jvbsm"]
+[ext_resource type="Script" path="res://scripts/VillagerDialogue.gd" id="17_krlnx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cafx"]
 size = Vector2(837.001, 20)
@@ -542,11 +543,11 @@ texture = ExtResource("15_rwxi5")
 
 [node name="interactiveUI" parent="Sprite2D" instance=ExtResource("5_brayo")]
 position = Vector2(100, -424.902)
-script = ExtResource("16_c5igg")
+script = ExtResource("16_jvbsm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/interactiveUI"]
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_jsmd7")
+script = ExtResource("17_krlnx")
 
 [connection signal="body_entered" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_entered"]
 [connection signal="body_exited" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_exited"]
@@ -555,3 +556,5 @@ shape = SubResource("RectangleShape2D_jsmd7")
 [connection signal="body_exited" from="InteractiveUI/interactiveUI" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_interactive_ui_body_exited"]
 [connection signal="timeout" from="InteractiveUI/interactiveUI/CollisionShape2D2/Timer" to="InteractiveUI/interactiveUI/CollisionShape2D2" method="_on_timer_timeout"]
 [connection signal="timeout" from="SavingLabel/Timer" to="." method="_on_timer_timeout"]
+[connection signal="body_entered" from="Sprite2D/interactiveUI" to="Sprite2D/interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_entered"]
+[connection signal="body_exited" from="Sprite2D/interactiveUI" to="Sprite2D/interactiveUI/CollisionShape2D" method="_on_interactive_ui_body_exited"]
