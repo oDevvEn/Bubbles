@@ -1,10 +1,11 @@
-[gd_scene load_steps=13 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=23 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
 [ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
+[ext_resource type="Texture2D" uid="uid://bxl6maqmjwbl8" path="res://assets/BeachBackgroundSpriteSheet.png" id="5_cbpea"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g2jvf"]
 atlas = ExtResource("4_t0dgo")
@@ -38,6 +39,70 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_tofw4"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1enq0"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g26k"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0bvm"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(5760, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tlmjp"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(7680, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g8sge"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(9600, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hhoqn"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(11520, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_155t5"]
+atlas = ExtResource("5_cbpea")
+region = Rect2(13440, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ttgeo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tofw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1enq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g26k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0bvm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tlmjp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g8sge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hhoqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_155t5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rylii"]
 size = Vector2(2436, 100)
 
@@ -59,15 +124,20 @@ position = Vector2(123.5, -124.5)
 scale = Vector2(1.76563, 1.76563)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-offset = Vector2(0, -500)
+offset = Vector2(0, -433)
 
 [node name="Beach" type="AnimatedSprite2D" parent="."]
 z_index = -1
-position = Vector2(963, -136)
+position = Vector2(961, -136)
 sprite_frames = SubResource("SpriteFrames_wfrxb")
 autoplay = "default"
 frame = 2
 frame_progress = 0.85345
+
+[node name="BeachBackground" type="AnimatedSprite2D" parent="."]
+z_index = -2
+position = Vector2(961, -545)
+sprite_frames = SubResource("SpriteFrames_ttgeo")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
