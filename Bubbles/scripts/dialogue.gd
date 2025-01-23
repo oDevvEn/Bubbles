@@ -13,12 +13,17 @@ func setupDialogue(speakerPicture, speakerName:String, dialog:String) -> void:
 	dialogue.text = dialog
 
 func setupButtons(choices:Array) -> void:
+	for child in get_children():
+		if child is Button:
+			child.queue_free()
+	
+	
 	var count = 0
 	for choice in choices:
 		var btn : Button = button.instantiate()
 		btn.text = choice
-		btn.position = Vector2(1920 - 400 - count*340, 235)
+		btn.position = Vector2(1920 - 850 - count*700, 335)
 		btn.add_theme_font_size_override("font_size", 36)
-		btn.connect("pressed", func(): click.emit(count); queue_free())
+		btn.connect("pressed", func(): click.emit(count))
 		add_child(btn)
 		count += 1
