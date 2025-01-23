@@ -1,0 +1,23 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3cvqhd6qu7sg"]
+
+[ext_resource type="Texture2D" uid="uid://dw56e5texfjak" path="res://assets/fish/Cod.png" id="1_y7rb7"]
+
+[node name="Slot" type="TextureRect"]
+offset_left = 162.5
+offset_top = 102.5
+offset_right = 407.5
+offset_bottom = 347.5
+texture = ExtResource("1_y7rb7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Count" type="Label" parent="."]
+layout_mode = 0
+offset_left = 145.5
+offset_top = 162.5
+offset_right = 227.5
+offset_bottom = 229.5
+theme_override_font_sizes/font_size = 48
+text = "100"
+horizontal_alignment = 1
+vertical_alignment = 1

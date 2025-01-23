@@ -1,0 +1,137 @@
+[gd_scene load_steps=4 format=3 uid="uid://dmod70y51qx06"]
+
+[ext_resource type="Script" path="res://scripts/inventory.gd" id="1_m2brg"]
+[ext_resource type="Texture2D" uid="uid://cqe3jvkrb0i88" path="res://assets/Inventory.png" id="1_n1wut"]
+[ext_resource type="PackedScene" uid="uid://d3cvqhd6qu7sg" path="res://assets/inventorySlot.tscn" id="3_xqljp"]
+
+[node name="Inventory" type="CanvasLayer"]
+script = ExtResource("1_m2brg")
+
+[node name="Background" type="TextureRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -520.0
+offset_top = -319.0
+offset_right = 1927.0
+offset_bottom = 453.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_n1wut")
+
+[node name="1" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 182.5
+offset_top = 120.0
+offset_right = 427.5
+offset_bottom = 365.0
+
+[node name="2" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 452.5
+offset_top = 120.0
+offset_right = 697.5
+offset_bottom = 365.0
+
+[node name="3" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 120.0
+offset_right = 960.0
+offset_bottom = 365.0
+
+[node name="4" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 972.5
+offset_top = 120.0
+offset_right = 1217.5
+offset_bottom = 365.0
+
+[node name="5" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 1225.0
+offset_top = 120.0
+offset_right = 1470.0
+offset_bottom = 365.0
+
+[node name="6" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 1485.0
+offset_top = 120.0
+offset_right = 1730.0
+offset_bottom = 365.0
+
+[node name="7" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 1765.0
+offset_top = 120.0
+offset_right = 2010.0
+offset_bottom = 365.0
+
+[node name="8" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 2047.5
+offset_top = 120.0
+offset_right = 2292.5
+offset_bottom = 365.0
+
+[node name="9" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 182.5
+offset_top = 412.5
+offset_right = 427.5
+offset_bottom = 657.5
+
+[node name="10" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 452.5
+offset_top = 412.5
+offset_right = 697.5
+offset_bottom = 657.5
+
+[node name="11" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 715.0
+offset_top = 412.5
+offset_right = 960.0
+offset_bottom = 657.5
+
+[node name="12" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 972.5
+offset_top = 412.5
+offset_right = 1217.5
+offset_bottom = 657.5
+
+[node name="13" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 1225.0
+offset_top = 412.5
+offset_right = 1470.0
+offset_bottom = 657.5
+
+[node name="14" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 1485.0
+offset_top = 412.5
+offset_right = 1730.0
+offset_bottom = 657.5
+
+[node name="15" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 1765.0
+offset_top = 412.5
+offset_right = 2010.0
+offset_bottom = 657.5
+
+[node name="16" parent="Background" instance=ExtResource("3_xqljp")]
+layout_mode = 0
+offset_left = 2047.5
+offset_top = 412.5
+offset_right = 2292.5
+offset_bottom = 657.5
+
+[connection signal="ready" from="." to="." method="_on_ready"]

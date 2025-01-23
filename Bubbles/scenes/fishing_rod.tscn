@@ -103,4 +103,9 @@ width = 2.0
 [node name="CastTime" type="Timer" parent="."]
 one_shot = true
 
+[node name="RetractingDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="CastTime" to="." method="_on_cast_time_timeout"]
+[connection signal="timeout" from="RetractingDelay" to="." method="_on_retracting_delay_timeout"]
