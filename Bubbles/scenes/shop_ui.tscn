@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://djk83h08lkipv"]
+
+[ext_resource type="Texture2D" uid="uid://jsohoyaw3e62" path="res://assets/ShopUI.png" id="1_rphk3"]
+[ext_resource type="Texture2D" uid="uid://bvnlvuhbhdwej" path="res://assets/fishingRod.png" id="2_gwyyc"]
+[ext_resource type="FontFile" uid="uid://dlmi3qmev1ipy" path="res://assets/Bubble gum.otf" id="3_f1a01"]
+[ext_resource type="Script" path="res://scripts/GetRod.gd" id="4_ktcd7"]
+
+[node name="ShopUI" type="Sprite2D"]
+position = Vector2(312, -647)
+texture = ExtResource("1_rphk3")
+
+[node name="FishingRod" type="Sprite2D" parent="."]
+position = Vector2(-4085.15, -1442)
+scale = Vector2(1.52469, 1.52469)
+texture = ExtResource("2_gwyyc")
+
+[node name="Label" type="Label" parent="."]
+z_index = 1
+offset_left = -4407.0
+offset_top = -1120.0
+offset_right = -682.0
+offset_bottom = 198.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_f1a01")
+theme_override_font_sizes/font_size = 200
+text = "10 Coins"
+
+[node name="Label2" type="Label" parent="."]
+z_index = 1
+offset_left = -2890.0
+offset_top = -1123.0
+offset_right = 835.0
+offset_bottom = 195.0
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+theme_override_fonts/font = ExtResource("3_f1a01")
+theme_override_font_sizes/font_size = 200
+text = "1000 Coins"
+
+[node name="RodButton" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 2
+offset_left = -4683.0
+offset_top = -2017.0
+offset_right = -3435.0
+offset_bottom = -875.0
+script = ExtResource("4_ktcd7")
+
+[connection signal="pressed" from="RodButton" to="RodButton" method="_on_pressed"]

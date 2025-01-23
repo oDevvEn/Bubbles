@@ -1,7 +1,6 @@
-[gd_scene load_steps=62 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=61 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
-[ext_resource type="PackedScene" uid="uid://d1smeiwx7miao" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
 [ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
@@ -359,10 +358,6 @@ position = Vector2(-339, -67)
 [node name="Camera2D" type="Camera2D" parent="player"]
 offset = Vector2(0, -433)
 
-[node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]
-scale = Vector2(0.5, 0.5)
-offset = Vector2(420, -380)
-
 [node name="mapPlayerBoundaries" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -611,10 +606,10 @@ texture = ExtResource("19_02sc1")
 flip_h = true
 
 [node name="interactiveUI" parent="ShopkeeperFish" instance=ExtResource("5_brayo")]
+position = Vector2(-8.09, -303.025)
 script = ExtResource("20_w3hrs")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ShopkeeperFish/interactiveUI"]
-position = Vector2(-8.08984, -303.025)
 scale = Vector2(5, 5)
 shape = SubResource("RectangleShape2D_f86of")
 script = ExtResource("21_le0di")
