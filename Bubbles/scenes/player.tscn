@@ -129,7 +129,7 @@ size = Vector2(120, 394)
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_4gvtr")
 
-[node name="PlayerSprite" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -242)
 sprite_frames = SubResource("SpriteFrames_81wv1")
 animation = &"walk"
