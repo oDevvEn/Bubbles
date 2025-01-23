@@ -3,7 +3,7 @@ extends CollisionShape2D
 @onready var dialogue : PackedScene = preload("res://scenes/dialogue.tscn") #debug
 const FISH = preload("res://assets/DialogueBoxFish4.png")
 var inCollider = false
-@onready var d : CanvasLayer = dialogue.instantiate()
+@onready var d : CanvasLayer
 
 func _on_interactive_ui_body_entered(body: Node2D) -> void:
 	inCollider = true
@@ -11,7 +11,8 @@ func _on_interactive_ui_body_exited(body: Node2D) -> void:
 	inCollider = false
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("interact") && inCollider == true:
+	if Input.is_action_just_pressed("interact") && inCollider == true && !d:
+		d = dialogue.instantiate()
 		d.setupDialogue(FISH, "Villager", "Morning there! Who might you be?")
 		d.setupButtons(["I don't know", "Where am I?"])
 		d.connect("click", First1)
@@ -75,7 +76,7 @@ func Sixth1(choice):
 
 		
 		
-func End():
+func End(x):
 	d.queue_free()
 		
 func Third2(choice):
