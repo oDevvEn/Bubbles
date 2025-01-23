@@ -513,8 +513,8 @@ metadata/_edit_lock_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Map/Sprite2D3"]
 z_index = -2
-position = Vector2(-1914, 62.6084)
-scale = Vector2(1, 1.11806)
+position = Vector2(-1914, 0.433144)
+scale = Vector2(1, 1.00292)
 texture = ExtResource("12_1osy7")
 flip_h = true
 
