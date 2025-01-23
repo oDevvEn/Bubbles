@@ -1,9 +1,9 @@
 extends CollisionShape2D
 
+@onready var player: CharacterBody2D = $"../../../player"
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 @onready var timer: Timer = $Timer
-@onready var player: CharacterBody2D = %player
 var inCollider = false
 
 func _process(delta: float) -> void:

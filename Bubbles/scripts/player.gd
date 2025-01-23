@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 var crabbed : bool = false
-@onready var sprite: AnimatedSprite2D = $PlayerSprite
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var col: CollisionShape2D = $CollisionShape2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
