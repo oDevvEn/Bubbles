@@ -47,11 +47,16 @@ func _ready() -> void:
 	elif FileAccess.file_exists("user://gamesave.save"):
 		DirAccess.remove_absolute("user://gamesave.save")		
 	
-
+	
+var rodPresent = false
+@onready var fishing_rod: Node2D = $"."
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("save"):
 		saveGame()
+	if player.inventory["fishingRod"] == true && rodPresent == false:
+		player.add_child(fishing_rod)
+
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
