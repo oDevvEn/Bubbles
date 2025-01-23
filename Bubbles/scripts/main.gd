@@ -14,7 +14,8 @@ func saveGame() -> void:
 		"positionX": player.position.x,
 		"positionY": player.position.y,
 		"special": player.crabbed,
-		"inventory": player.inventory}
+		"inventory": player.inventory,
+		"coins": player.coins}
 	saving.position = Vector2(player.position.x-270, (player.position.y-900))
 	timer.start()
 	file.store_line(JSON.stringify(data))
@@ -42,6 +43,7 @@ func _ready() -> void:
 		player.position = Vector2(loadData["positionX"], loadData["positionY"])
 		player.crabbed = loadData["special"]
 		player.inventory = loadData["inventory"]
+		player.coins = loadData["coins"]
 	elif FileAccess.file_exists("user://gamesave.save"):
 		DirAccess.remove_absolute("user://gamesave.save")		
 	

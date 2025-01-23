@@ -4,6 +4,7 @@ var inventory = {"missingPoster": false,
 "brokenPhone": false, "keys": false, "address": false,
 "necklace":false, "fishingRod": false}
 var crabbed : bool = false
+var coins = 0
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var col: CollisionShape2D = $CollisionShape2D
