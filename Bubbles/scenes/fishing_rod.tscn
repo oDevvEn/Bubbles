@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/fishingRod.gd" id="1_twmh0"]
 [ext_resource type="Texture2D" uid="uid://dbdrp86uo23d1" path="res://assets/bobber.png" id="2_a4e4p"]
 [ext_resource type="Texture2D" uid="uid://cvu2akkmgggus" path="res://assets/Bubble.png" id="4_yejgl"]
-[ext_resource type="Texture2D" uid="uid://dgmd3yx2sytt1" path="res://assets/crab.png" id="5_g6crj"]
+[ext_resource type="Texture2D" uid="uid://cyj3jcrmbgyvn" path="res://assets/fish/Diary.png" id="5_0ddj1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_naauj"]
 size = Vector2(12, 22)
@@ -53,7 +53,6 @@ value = 100.0
 show_percentage = false
 
 [node name="Bobber" type="RigidBody2D" parent="."]
-visible = false
 top_level = true
 position = Vector2(45.965, 0)
 collision_layer = 0
@@ -86,11 +85,10 @@ randomness = 1.0
 fixed_fps = 60
 
 [node name="AttatchedFish" type="Sprite2D" parent="Bobber"]
-visible = false
 rotation = -1.5708
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("5_g6crj")
-offset = Vector2(-160, 0)
+texture = ExtResource("5_0ddj1")
+offset = Vector2(-110, 35)
 
 [node name="FishingRodTip" type="Marker2D" parent="."]
 position = Vector2(363, -312)

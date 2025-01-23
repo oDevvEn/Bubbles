@@ -12,6 +12,7 @@ var retracting : bool = false
 var elapsedTime : float = 0
 
 @onready var player : CharacterBody2D = get_parent()
+@onready var inventory : TextureRect = player.get_parent().get_node("Inventory")
 @onready var playerSprite : AnimatedSprite2D = player.get_node("AnimatedSprite2D")
 @onready var progressBar : ProgressBar = $CanvasLayer/ProgressBar
 @onready var bobber : RigidBody2D = $Bobber
@@ -27,11 +28,15 @@ var elapsedTime : float = 0
 
 # fish texture: 1 in every [] times
 @onready var fish : Dictionary = {
-	"Cod": [load("res://assets/fish/Cod.png"), 										   Vector2(-250,  55)], # 50%
+	"Cod": [load("res://assets/fish/Cod.png"), 										   Vector2(-250,  55)], # 45%
 	"JewelCichild": [load("res://assets/fish/JewelCichild.png"), 					   Vector2(-210,  40)], # 20%
 	"CopperbandButterflyfish": [load("res://assets/fish/CopperbandButterflyfish.png"), Vector2(-100, -32)], # 15%
 	"Clownfish": [load("res://assets/fish/Clownfish.png"), 	 						   Vector2(-150,  40)], # 10%
 	"PurpleTang": [load("res://assets/fish/PurpleTang.png"), 						   Vector2(-185, - 8)], #  5%
+	"Keys": [load("res://assets/fish/Keys.png"),                                       Vector2(-20, -30)], # 1%
+	"MissingPoster": [load("res://assets/fish/MissingPoster.png"),                     Vector2(-110, 0)],
+	"Necklace": [load("res://assets/fish/Necklace.png"),                               Vector2(-90, 30)],
+	"Diary": [load("res://assets/fish/Diary.png"),                                     Vector2(-110, 35)],
 }
 @onready var crab = load("res://assets/crab.png")
 @onready var attatchedFish : Sprite2D = $Bobber/AttatchedFish
@@ -51,16 +56,26 @@ func _process(delta: float) -> void:
 			else:
 				var choice : float = randf_range(0, 100)
 				var stats : Array
-				if choice > 50:
+				if choice > 54:
 					stats = fish["Cod"]
-				elif choice > 30:
+				elif choice > 34:
 					stats = fish["JewelCichild"]
-				elif choice > 15:
+				elif choice > 19:
 					stats = fish["CopperbandButterflyfish"]
-				elif choice > 5:
+				elif choice > 9:
 					stats = fish["Clownfish"]
-				else:
+				elif choice > 4:
 					stats = fish["PurpleTang"]
+				elif choice > 3:
+					stats = fish["Keys"]
+				elif choice > 2:
+					stats = fish["MissingPoster"]
+				elif choice > 1:
+					stats = fish["Necklace"]
+				else:
+					stats = fish["Diary"]
+					
+					
 				
 				attatchedFish.texture = stats[0]
 				attatchedFish.offset = stats[1]

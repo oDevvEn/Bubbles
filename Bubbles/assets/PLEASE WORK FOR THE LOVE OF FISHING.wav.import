@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://b6dp41ci1c1jy"
+path="res://.godot/imported/PLEASE WORK FOR THE LOVE OF FISHING.wav-7031862c026845801d4cb7732e882172.sample"
+
+[deps]
+
+source_file="res://assets/PLEASE WORK FOR THE LOVE OF FISHING.wav"
+dest_files=["res://.godot/imported/PLEASE WORK FOR THE LOVE OF FISHING.wav-7031862c026845801d4cb7732e882172.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
