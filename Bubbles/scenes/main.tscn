@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=63 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
@@ -16,11 +16,12 @@
 [ext_resource type="Texture2D" uid="uid://d4jucupsuqt28" path="res://assets/VillagerFish.png" id="15_rwxi5"]
 [ext_resource type="Script" path="res://scripts/interactive_ui3.gd" id="16_jvbsm"]
 [ext_resource type="Script" path="res://scripts/VillagerDialogue.gd" id="17_krlnx"]
-[ext_resource type="Texture2D" uid="uid://bby3sluq23unh" path="res://assets/Shop.png" id="18_7yjed"]
-[ext_resource type="Texture2D" uid="uid://rsricuvks10r" path="res://assets/ShopkeeperFish.png" id="19_02sc1"]
-[ext_resource type="PackedScene" uid="uid://djk83h08lkipv" path="res://scenes/shop_ui.tscn" id="20_nuijh"]
+[ext_resource type="Texture2D" uid="uid://21t1uiurwiyy" path="res://assets/Shop.png" id="18_7yjed"]
+[ext_resource type="Texture2D" uid="uid://nno3gffvhkrf" path="res://assets/ShopkeeperFish.png" id="19_02sc1"]
+[ext_resource type="PackedScene" path="res://scenes/shop_ui.tscn" id="20_nuijh"]
 [ext_resource type="Script" path="res://scripts/interactive_ui4.gd" id="20_w3hrs"]
 [ext_resource type="Script" path="res://scripts/Shopkeeper.gd" id="21_le0di"]
+[ext_resource type="PackedScene" uid="uid://dmod70y51qx06" path="res://scenes/inventory.tscn" id="22_cqbt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cafx"]
 size = Vector2(837.001, 20)
@@ -620,6 +621,8 @@ position = Vector2(6439, -259)
 scale = Vector2(0.149729, 0.149729)
 texture = ExtResource("19_02sc1")
 flip_h = true
+
+[node name="Inventory" parent="." instance=ExtResource("22_cqbt8")]
 
 [connection signal="body_entered" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_entered"]
 [connection signal="body_exited" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_exited"]

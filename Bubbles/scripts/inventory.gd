@@ -22,9 +22,6 @@ func _ready() -> void:
 		slot.visible = false
 		slots.append(slot)
 
-	addItem("Cod", 25)
-	removeAtSlot(1)
-
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("inventory"):
 		background.visible = not background.visible
