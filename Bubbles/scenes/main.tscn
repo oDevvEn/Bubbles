@@ -407,6 +407,7 @@ libraries = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="InteractiveUI/interactiveUI2/CollisionShape2D2/AnimationPlayer"]
+z_index = 20
 offset_left = -2794.0
 offset_top = -3246.0
 offset_right = 8067.0
