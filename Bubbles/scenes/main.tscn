@@ -1,7 +1,7 @@
 [gd_scene load_steps=57 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
-[ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
+[ext_resource type="PackedScene" uid="uid://d1smeiwx7miao" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
 [ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
@@ -584,6 +584,13 @@ metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="sandCollider"]
 polygon = PackedVector2Array(-1205, -34, -1105, -67, -1015, -79, -920, -86, -772, -132, -685, -152, -598, -154, -494, -143, -337, -143, -36, -163, 72, -155, 139, -158, 228, -171, 288, -173, 457, -150, 504, -150, 571, -157, 910, -117, 1019, -115, 1010, -13, -1203, -4)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1986.0
+offset_top = -28.0
+offset_right = -1977.0
+offset_bottom = -17.0
+color = Color(0.396078, 0.596078, 0.74902, 1)
 
 [connection signal="body_entered" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_entered"]
 [connection signal="body_exited" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_exited"]
