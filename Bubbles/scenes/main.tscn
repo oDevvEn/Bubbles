@@ -1,7 +1,8 @@
-[gd_scene load_steps=63 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=64 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://d1smeiwx7miao" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
+[ext_resource type="PackedScene" path="res://scenes/inventory.tscn" id="2_kqbrv"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
 [ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
@@ -17,8 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://d4jucupsuqt28" path="res://assets/VillagerFish.png" id="15_rwxi5"]
 [ext_resource type="Script" path="res://scripts/interactive_ui3.gd" id="16_jvbsm"]
 [ext_resource type="Script" path="res://scripts/VillagerDialogue.gd" id="17_krlnx"]
-[ext_resource type="Texture2D" uid="uid://bby3sluq23unh" path="res://assets/Shop.png" id="18_7yjed"]
-[ext_resource type="Texture2D" uid="uid://rsricuvks10r" path="res://assets/ShopkeeperFish.png" id="19_02sc1"]
+[ext_resource type="Texture2D" uid="uid://21t1uiurwiyy" path="res://assets/Shop.png" id="18_7yjed"]
+[ext_resource type="Texture2D" uid="uid://nno3gffvhkrf" path="res://assets/ShopkeeperFish.png" id="19_02sc1"]
 [ext_resource type="PackedScene" uid="uid://djk83h08lkipv" path="res://scenes/shop_ui.tscn" id="20_nuijh"]
 [ext_resource type="Script" path="res://scripts/interactive_ui4.gd" id="20_w3hrs"]
 [ext_resource type="Script" path="res://scripts/Shopkeeper.gd" id="21_le0di"]
@@ -352,6 +353,8 @@ size = Vector2(200.923, 525.291)
 [node name="main" type="Node2D"]
 script = ExtResource("1_3xh5h")
 
+[node name="Inventory" parent="." instance=ExtResource("2_kqbrv")]
+
 [node name="player" parent="." instance=ExtResource("3_ucrm3")]
 z_index = 1
 position = Vector2(-339, -67)
@@ -360,8 +363,8 @@ position = Vector2(-339, -67)
 offset = Vector2(0, -433)
 
 [node name="fishingRod" parent="player" instance=ExtResource("2_8q2ka")]
-position = Vector2(128, -126)
 scale = Vector2(0.2, 0.2)
+offset = Vector2(650, -590)
 
 [node name="mapPlayerBoundaries" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true
@@ -510,10 +513,10 @@ metadata/_edit_lock_ = true
 
 [node name="Sprite2D3" type="Sprite2D" parent="Map/Sprite2D3"]
 z_index = -2
-position = Vector2(-827, -63.5031)
+position = Vector2(-1914, 62.6084)
 scale = Vector2(1, 1.11806)
 texture = ExtResource("12_1osy7")
-metadata/_edit_lock_ = true
+flip_h = true
 
 [node name="Sprite2D4" type="Sprite2D" parent="Map"]
 z_index = -2
@@ -579,7 +582,7 @@ collision_mask = 4
 metadata/_edit_lock_ = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="fishingCollider"]
-polygon = PackedVector2Array(-10000, -26, -3144, -28, -3048, -31, -2979, -39, -2910, -21, -2869, -18, -2752, -31, -2676, -31, -2636, -36, -2596, -31, -2563, -18, -2512, -12, -2433, -13, -2359, -24, -2270, -27, -2217, -24, -2185, -13, -2150, -4, -2091, -1, -1988, -14, -1789, 8, -1728, 10, -1728, 45, -10000, 28)
+polygon = PackedVector2Array(-3283, -26, -3144, -28, -3048, -31, -2979, -39, -2910, -21, -2869, -18, -2752, -31, -2676, -31, -2636, -36, -2596, -31, -2563, -18, -2512, -12, -2433, -13, -2359, -24, -2270, -27, -2217, -24, -2185, -13, -2150, -4, -2091, -1, -1988, -14, -1789, 8, -1728, 10, -1728, 45, -3296, 28)
 
 [node name="BackgroundSky" type="Sprite2D" parent="."]
 position = Vector2(119, -2563)
