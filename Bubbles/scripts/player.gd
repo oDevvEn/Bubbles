@@ -1,12 +1,8 @@
 extends CharacterBody2D
 
-var inventory = {"missingPoster": false, 
-"brokenPhone": false, "keys": false, "address": false,
-"necklace":false, "fishingRod": false}
-var crabbed : bool = false
-var coins = 0
 
-@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+var crabbed : bool = false
+@onready var sprite: AnimatedSprite2D = $PlayerSprite
 @onready var col: CollisionShape2D = $CollisionShape2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0

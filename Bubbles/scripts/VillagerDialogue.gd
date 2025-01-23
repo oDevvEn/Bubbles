@@ -1,6 +1,6 @@
 extends CollisionShape2D
+@onready var player: CharacterBody2D = $"../../../player"
 
-@onready var player: CharacterBody2D = %player
 @onready var dialogue : PackedScene = preload("res://scenes/dialogue.tscn") #debug
 const FISH = preload("res://assets/DialogueBoxFish4.png")
 var inCollider = false
@@ -78,7 +78,7 @@ func Sixth1(choice):
 		
 		
 func End(x):
-	player.coins += 10
+	PlayerVariabgles.coins += 10
 	d.queue_free()
 		
 func Third2(choice):

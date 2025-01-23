@@ -14,8 +14,8 @@ func saveGame() -> void:
 		"positionX": player.position.x,
 		"positionY": player.position.y,
 		"special": player.crabbed,
-		"inventory": player.inventory,
-		"coins": player.coins}
+		"inventory": PlayerVariabgles.inventory,
+		"coins": PlayerVariabgles.coins}
 	saving.position = Vector2(player.position.x-270, (player.position.y-900))
 	timer.start()
 	file.store_line(JSON.stringify(data))
@@ -42,8 +42,8 @@ func _ready() -> void:
 	if loadData:
 		player.position = Vector2(loadData["positionX"], loadData["positionY"])
 		player.crabbed = loadData["special"]
-		player.inventory = loadData["inventory"]
-		player.coins = loadData["coins"]
+		PlayerVariabgles.inventory = loadData["inventory"]
+		PlayerVariabgles.coins = loadData["coins"]
 	elif FileAccess.file_exists("user://gamesave.save"):
 		DirAccess.remove_absolute("user://gamesave.save")		
 	
@@ -54,7 +54,7 @@ var rodPresent = false
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("save"):
 		saveGame()
-	if player.inventory["fishingRod"] == true && rodPresent == false:
+	if PlayerVariabgles.inventory["fishingRod"] == true && rodPresent == false:
 		player.add_child(fishing_rod)
 
 
