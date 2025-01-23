@@ -45,12 +45,7 @@ func _ready() -> void:
 	elif FileAccess.file_exists("user://gamesave.save"):
 		DirAccess.remove_absolute("user://gamesave.save")		
 	
-	#debug
-	var d : CanvasLayer = dialogue.instantiate()
-	d.setupDialogue(godot, "Godot", "meowwwwwwwwwww")
-	d.setupButtons(["meow", "meow 2"])
-	d.connect("click", func(value): print(value))
-	add_child(d)
+
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("save"):
