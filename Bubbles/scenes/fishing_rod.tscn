@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dn6es4mb7jm3w"]
+[gd_scene load_steps=9 format=3 uid="uid://dn6es4mb7jm3w"]
 
 [ext_resource type="Texture2D" uid="uid://bvnlvuhbhdwej" path="res://assets/fishingRod.png" id="1_lts1u"]
 [ext_resource type="Script" path="res://scripts/fishingRod.gd" id="1_twmh0"]
 [ext_resource type="Texture2D" uid="uid://dbdrp86uo23d1" path="res://assets/bobber.png" id="2_a4e4p"]
 [ext_resource type="Texture2D" uid="uid://cvu2akkmgggus" path="res://assets/Bubble.png" id="4_yejgl"]
+[ext_resource type="Texture2D" uid="uid://dgmd3yx2sytt1" path="res://assets/crab.png" id="5_g6crj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_naauj"]
 size = Vector2(12, 22)
@@ -24,7 +25,7 @@ angle_max = 720.0
 inherit_velocity_ratio = 1.0
 direction = Vector3(0, -1, 0)
 spread = 60.0
-initial_velocity_max = 128.0
+initial_velocity_max = 16.0
 gravity = Vector3(0, 98, 0)
 anim_offset_max = 1.0
 
@@ -52,9 +53,11 @@ value = 100.0
 show_percentage = false
 
 [node name="Bobber" type="RigidBody2D" parent="."]
+visible = false
 top_level = true
 position = Vector2(45.965, 0)
 collision_layer = 0
+collision_mask = 14
 lock_rotation = true
 
 [node name="BobberSprite" type="Sprite2D" parent="Bobber"]
@@ -69,20 +72,28 @@ position = Vector2(0, -11)
 
 [node name="RayCast2D" type="RayCast2D" parent="Bobber"]
 target_position = Vector2(0, 13)
-collision_mask = 2
+collision_mask = 12
 collide_with_areas = true
 
 [node name="BubbleParticles" type="GPUParticles2D" parent="Bobber"]
 material = SubResource("CanvasItemMaterial_ilua0")
-position = Vector2(-45.965, 0)
 emitting = false
-amount = 12
+amount = 24
 process_material = SubResource("ParticleProcessMaterial_lcnbu")
 texture = ExtResource("4_yejgl")
-lifetime = 2.0
+lifetime = 3.0
+randomness = 1.0
+fixed_fps = 60
+
+[node name="AttatchedFish" type="Sprite2D" parent="Bobber"]
+visible = false
+rotation = -1.5708
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_g6crj")
+offset = Vector2(-160, 0)
 
 [node name="FishingRodTip" type="Marker2D" parent="."]
-position = Vector2(29, -25)
+position = Vector2(363, -312)
 
 [node name="FishingLine" type="Line2D" parent="."]
 visible = false

@@ -56,6 +56,13 @@ save={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="Player Collidable"
+2d_physics/layer_2="Everything Collidable"
+2d_physics/layer_3="fishing bobber collider"
+2d_physics/layer_4="special sand collider"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0

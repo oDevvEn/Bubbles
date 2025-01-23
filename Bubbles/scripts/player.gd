@@ -3,6 +3,7 @@ extends CharacterBody2D
 var inventory = {"missingPoster": false, 
 "brokenPhone": false, "keys": false, "address": false,
 "necklace":false, "fishingRod": false}
+var crabbed : bool = false
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var col: CollisionShape2D = $CollisionShape2D

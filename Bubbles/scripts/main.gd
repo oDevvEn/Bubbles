@@ -13,6 +13,7 @@ func saveGame() -> void:
 	var data : Dictionary = {
 		"positionX": player.position.x,
 		"positionY": player.position.y,
+		"special": player.crabbed,
 		"inventory": player.inventory}
 	saving.position = Vector2(player.position.x-270, (player.position.y-900))
 	timer.start()
@@ -39,6 +40,7 @@ func _ready() -> void:
 	# Load player data
 	if loadData:
 		player.position = Vector2(loadData["positionX"], loadData["positionY"])
+		player.crabbed = loadData["special"]
 		player.inventory = loadData["inventory"]
 	elif FileAccess.file_exists("user://gamesave.save"):
 		DirAccess.remove_absolute("user://gamesave.save")		
