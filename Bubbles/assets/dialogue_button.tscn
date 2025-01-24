@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bocyb38jktp4"]
 
-[ext_resource type="StyleBox" uid="uid://ddipsahywmq0t" path="res://assets/buttonThemeOverrideStyle.tres" id="1_eud6e"]
+[ext_resource type="StyleBox" uid="uid://da0daw683yau4" path="res://assets/buttonThemeOverrideStyle.tres" id="1_eud6e"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kb4jh"]
 

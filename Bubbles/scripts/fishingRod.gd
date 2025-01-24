@@ -12,7 +12,7 @@ var retracting : bool = false
 var elapsedTime : float = 0
 
 @onready var player : CharacterBody2D = get_parent()
-@onready var inventory : TextureRect = player.get_parent().get_node("Inventory")
+#@onready var inventory : TextureRect = player.get_parent().get_node("Inventory")
 @onready var playerSprite : AnimatedSprite2D = player.get_node("AnimatedSprite2D")
 @onready var progressBar : ProgressBar = $CanvasLayer/ProgressBar
 @onready var bobber : RigidBody2D = $Bobber
@@ -25,6 +25,7 @@ var elapsedTime : float = 0
 @onready var raycast : RayCast2D = $Bobber/RayCast2D
 @onready var castTimer : Timer = $CastTime
 @onready var bubbles : GPUParticles2D = $Bobber/BubbleParticles
+@onready var retractDelay : Timer = $RetractDelay
 
 # fish texture: 1 in every [] times
 @onready var fish : Dictionary = {
@@ -141,6 +142,9 @@ func _process(delta: float) -> void:
 	flip_h = playerSprite.flip_h 
 	offset.x = abs(offset.x) * (int(flip_h) * -2 + 1)
 	rodTip.position.x = abs(rodTip.position.x) * (int(flip_h) * -2 + 1)
+
+func _on_retract_delay_timeout() -> void:
+	pass
 
 func _on_cast_time_timeout() -> void:
 	if not catching and (not special or (special and not player.crabbed)):

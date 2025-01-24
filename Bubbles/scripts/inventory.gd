@@ -21,6 +21,13 @@ func _ready() -> void:
 		var slot : TextureRect = background.get_node(str(count))
 		slot.visible = false
 		slots.append(slot)
+	addItem("Cod", 27)
+	addItem("Clownfish", 1)
+	addItem("CopperbandButterflyfish", 1)
+	addItem("JewelCichild", 1)
+	addItem("PurpleTang", 1)
+	addItem("FishingRod", 2)
+	removeAtSlot(2)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("inventory"):
@@ -60,8 +67,8 @@ func addItem(itemName : String, count : int) -> void:
 	updateInventory()
 
 func removeAtSlot(num : int):
-	var slot : Dictionary = inventory[str(num)]
-	if slot:
+	if inventory.has(str(num)):
+		var slot : Dictionary = inventory[str(num)]
 		slot.count -= 1
 		if slot.count <= 0:
 			inventory[str(num)] = null
