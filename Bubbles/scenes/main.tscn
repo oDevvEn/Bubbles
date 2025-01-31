@@ -27,7 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://dmod70y51qx06" path="res://scenes/inventory.tscn" id="24_vmudf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfaxa"]
-size = Vector2(29.436, 75.8475)
+size = Vector2(31.3669, 75.8475)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cafx"]
 size = Vector2(837.001, 20)
@@ -360,7 +360,7 @@ script = ExtResource("1_3xh5h")
 
 [node name="player" parent="." instance=ExtResource("3_ucrm3")]
 z_index = 1
-position = Vector2(-339, -67)
+position = Vector2(-648, -64)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 offset = Vector2(0, -433)
@@ -374,7 +374,7 @@ collision_layer = 0
 script = ExtResource("4_d24rq")
 
 [node name="FishingCollider" type="CollisionShape2D" parent="FishingColliderBody"]
-position = Vector2(-1213.3, -396.5)
+position = Vector2(-1170, -397)
 scale = Vector2(39.36, 11.8)
 shape = SubResource("RectangleShape2D_sfaxa")
 
