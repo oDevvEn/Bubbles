@@ -10,6 +10,7 @@ var special : bool = false
 var catching : bool = false
 var retracting : bool = false
 var elapsedTime : float = 0
+var canCast : bool = false
 
 @onready var player : CharacterBody2D = get_parent()
 #@onready var inventory : TextureRect = player.get_parent().get_node("Inventory")
@@ -82,16 +83,16 @@ func _process(delta: float) -> void:
 				attatchedFish.offset = stats[1]
 			attatchedFish.visible = true
 		catching = false
-
+	
 	# Casting
-	if Input.is_action_pressed("interact") and not cast and not retracting:
+	if Input.is_action_pressed("interact") and not cast and not retracting and canCast:
 		heldTime += delta
 		heldTime = clamp(heldTime, 0, 2)
 		progressBar.value = heldTime * 50
 		progressBar.visible = true
 
 	# Cast
-	elif (heldTime != 0):
+	elif (heldTime != 0) and canCast:
 		cast = true
 		progressBar.visible = false
 		attatchedFish.visible = false
@@ -103,6 +104,10 @@ func _process(delta: float) -> void:
 		bobber.linear_velocity = Vector2(-heldTime * castPower * (int(playerSprite.flip_h) * 2 - 1), -heldTime * castPower/3)
 		
 		heldTime = 0
+
+	elif not canCast:
+		heldTime = 0
+		progressBar.visible = false
 
 	# Cast Time
 	if cast:
@@ -121,17 +126,7 @@ func _process(delta: float) -> void:
 			bobber.linear_velocity = (bobber.global_position + bobberTip.position).direction_to(rodTip.global_position + offset * scale) * retractSpeed
 		else:
 			retracting = false
-			if special:
-				special = false 
-				player.crabbed = true
-			bobber.visible = false
-			line.visible = false
-			bobberCollider.disabled = true
-			colliding = false
-			bubbles.emitting = false
-			castTimer.stop()
-
-
+			retractDelay.start()
 
 	# LINE update
 	if cast or retracting:
@@ -144,7 +139,16 @@ func _process(delta: float) -> void:
 	rodTip.position.x = abs(rodTip.position.x) * (int(flip_h) * -2 + 1)
 
 func _on_retract_delay_timeout() -> void:
-	pass
+	if special:
+		special = false 
+		player.crabbed = true
+	bobber.visible = false
+	line.visible = false
+	bobberCollider.disabled = true
+	colliding = false
+	bubbles.emitting = false
+	castTimer.stop()
+	
 
 func _on_cast_time_timeout() -> void:
 	if not catching and (not special or (special and not player.crabbed)):

@@ -1,6 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://djk83h08lkipv"]
+[gd_scene load_steps=5 format=3 uid="uid://bo83hkdjb18ix"]
 
-[ext_resource type="Texture2D" uid="uid://jsohoyaw3e62" path="res://assets/ShopUI.png" id="1_rphk3"]
+[ext_resource type="Texture2D" uid="uid://cx1d77mt7ysh7" path="res://assets/ShopUI.png" id="1_rphk3"]
 [ext_resource type="Texture2D" uid="uid://bvnlvuhbhdwej" path="res://assets/fishingRod.png" id="2_gwyyc"]
 [ext_resource type="FontFile" uid="uid://dlmi3qmev1ipy" path="res://assets/Bubble gum.otf" id="3_f1a01"]
 [ext_resource type="Script" path="res://scripts/GetRod.gd" id="4_ktcd7"]

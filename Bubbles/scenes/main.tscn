@@ -1,8 +1,9 @@
-[gd_scene load_steps=65 format=3 uid="uid://fhuh2vsdu6h1"]
+[gd_scene load_steps=67 format=3 uid="uid://fhuh2vsdu6h1"]
 
 [ext_resource type="Script" path="res://scripts/main.gd" id="1_3xh5h"]
 [ext_resource type="PackedScene" uid="uid://dn6es4mb7jm3w" path="res://scenes/fishing_rod.tscn" id="2_8q2ka"]
 [ext_resource type="PackedScene" uid="uid://cb2v4dy4j6g5w" path="res://scenes/player.tscn" id="3_ucrm3"]
+[ext_resource type="Script" path="res://scenes/fishing_collider_body.gd" id="4_d24rq"]
 [ext_resource type="Texture2D" uid="uid://b7wtvqmy83ori" path="res://assets/BeachForegroundSpriteSheet.png" id="4_t0dgo"]
 [ext_resource type="PackedScene" uid="uid://dqxtodwgalhye" path="res://scenes/interactiveUI.tscn" id="5_brayo"]
 [ext_resource type="Script" path="res://scripts/GoUnderwater.gd" id="7_f5jan"]
@@ -19,11 +20,14 @@
 [ext_resource type="Script" path="res://scripts/VillagerDialogue.gd" id="17_krlnx"]
 [ext_resource type="Texture2D" uid="uid://21t1uiurwiyy" path="res://assets/Shop.png" id="18_7yjed"]
 [ext_resource type="Texture2D" uid="uid://nno3gffvhkrf" path="res://assets/ShopkeeperFish.png" id="19_02sc1"]
-[ext_resource type="PackedScene" path="res://scenes/shop_ui.tscn" id="20_nuijh"]
+[ext_resource type="PackedScene" uid="uid://bo83hkdjb18ix" path="res://scenes/shop_ui.tscn" id="20_nuijh"]
 [ext_resource type="Script" path="res://scripts/interactive_ui4.gd" id="20_w3hrs"]
 [ext_resource type="Script" path="res://scripts/Shopkeeper.gd" id="21_le0di"]
 [ext_resource type="AudioStream" uid="uid://b6dp41ci1c1jy" path="res://assets/PLEASE WORK FOR THE LOVE OF FISHING.wav" id="23_sfpjj"]
 [ext_resource type="PackedScene" uid="uid://dmod70y51qx06" path="res://scenes/inventory.tscn" id="24_vmudf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sfaxa"]
+size = Vector2(29.436, 75.8475)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2cafx"]
 size = Vector2(837.001, 20)
@@ -365,6 +369,15 @@ offset = Vector2(0, -433)
 scale = Vector2(0.2, 0.2)
 offset = Vector2(640, -630)
 
+[node name="FishingColliderBody" type="Area2D" parent="."]
+collision_layer = 0
+script = ExtResource("4_d24rq")
+
+[node name="FishingCollider" type="CollisionShape2D" parent="FishingColliderBody"]
+position = Vector2(-1213.3, -396.5)
+scale = Vector2(39.36, 11.8)
+shape = SubResource("RectangleShape2D_sfaxa")
+
 [node name="mapPlayerBoundaries" type="StaticBody2D" parent="."]
 metadata/_edit_lock_ = true
 
@@ -635,6 +648,8 @@ autoplay = true
 
 [node name="Inventory" parent="." instance=ExtResource("24_vmudf")]
 
+[connection signal="body_entered" from="FishingColliderBody" to="FishingColliderBody" method="_on_body_entered"]
+[connection signal="body_exited" from="FishingColliderBody" to="FishingColliderBody" method="_on_body_exited"]
 [connection signal="body_entered" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_entered"]
 [connection signal="body_exited" from="InteractiveUI/interactiveUI2" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_interactive_ui_2_body_exited"]
 [connection signal="timeout" from="InteractiveUI/interactiveUI2/CollisionShape2D2/Timer" to="InteractiveUI/interactiveUI2/CollisionShape2D2" method="_on_timer_timeout"]
